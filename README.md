@@ -1,108 +1,79 @@
-# Multi-Chapter LaTeX Book Project
+## Unpopular Science
 
-A comprehensive LaTeX book containing 53 chapters covering diverse topics in science, mathematics, technology, and philosophy.
+A single LaTeX book of 50 chapters spanning mathematics, physics, computer science, chemistry, philosophy, and history. The book opens with an Introduction and a Prologue, then proceeds through all 50 chapters.
 
-## Project Structure
+### What’s inside
+- **50 chapters** in indexed folders like `01_BanachTarskiParadox`, `29_HatMonotile`, `50_Consciousness`
+- Each chapter includes: `title.tex`, `summary.tex`, `historical.tex`, `main.tex`, `technical.tex` (plus optional files like `topicmap.tex`, `quote.tex`, `exercises.tex`, `imagefigure.tex`, etc.)
+- The main book entry point is `main.tex`, which includes Introduction, Prologue, and all chapters
 
-This project contains:
-- **53 indexed chapter directories** (`01_BanachTarskiParadox` through `53_BodySwappingPuzzle`)
-- **Main LaTeX file** (`main.tex`) with organized chapter includes
-- **Utilities folder** (`utils/`) with Python scripts for project management
-- **Cover graphics** and supporting materials
+### Chapter structure (per chapter)
+Each chapter is typeset in a consistent, compact layout:
+1) Title page
+2) Sidenote page (or blank if missing)
+3) Title + Summary + (optional) Topicmap + (optional) Quote
+4–8) Historical + Main content (+ optional extras)
+9) Technical page (exactly one page)
 
-## Features
+Note: The layout logic (including recto/verso handling) is implemented in the `\inputstory{...}` macro in the preamble and applied to every chapter.
 
-- **Multi-language support** with Hebrew, Sanskrit/Devanagari, and Latin scripts
-- **Modern LaTeX compilation** using LuaLaTeX for advanced typography
-- **Organized chapter structure** with summaries, technical sections, and image figures
-- **Automated build scripts** for chapter management and path corrections
-
-## Compilation
+## Build
 
 ### Requirements
-- TeX Live 2024 or later
-- LuaLaTeX engine
-- Required fonts: EzraSIL, CharisSIL, Noto Sans Devanagari
+- TeX Live (with LuaLaTeX available as `lualatex`)
+- Python 3.10+
 
-### Build Instructions
+Tip: Use a virtual environment before running any Python utilities.
 
+### Setup (recommended)
 ```bash
-# Compile the main document
-lualatex --interaction=nonstopmode main.tex
-
-# For complete compilation with references
-lualatex main.tex
-lualatex main.tex  # Run twice for cross-references
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
-## Chapter Management
+### Compile the whole book
+```bash
+python3 utils/compile_realtime.py main.tex
+```
+- Produces `main.pdf`
+- Runs two LuaLaTeX passes and prints real-time progress
+- Saves logs to `compile_pass1.log`, `compile_pass2.log` (and `main.log` from LaTeX)
 
-### Enable/Disable Chapters
-Chapters are controlled by `\def` statements at the beginning of `main.tex`:
-
-```latex
-\def\show01BanachTarskiParadox{}
-\def\show07BilliardsConicsPorism{}
-% Comment out or remove to disable chapters
+### Compile a subset of chapters (optional)
+Generate a temporary `.tex` that contains only selected chapters, then compile that file:
+```bash
+python3 utils/generate_chapter_subset.py 1-5,14,29 -o main_subset.tex
+python3 utils/compile_realtime.py main_subset.tex
 ```
 
-### Python Utilities
-
-The `utils/` directory contains helpful scripts:
-
-- `parse_chapters.py` - Analyze chapter structure and generate CSV reports
-- `reorganize_folders.py` - Rename folders with index prefixes  
-- `update_show_variables.py` - Update variable names to match folder structure
-- `fix_variables_no_underscore.py` - Remove problematic underscores from LaTeX variables
-- `fix_image_paths.py` - Correct image paths to use indexed folder names
-
-## Chapter Topics
-
-The book covers diverse subjects including:
-
-- **Mathematics**: Banach-Tarski Paradox, Bounded Prime Gaps, Arrow's Theorem
-- **Physics**: Quantum Tunneling, Dark Matter, General Relativity vs QFT
-- **Computer Science**: Zero-Knowledge Proofs, Speculative Execution Attacks
-- **Chemistry**: Woodward-Hoffmann Rules, Photosynthesis
-- **Philosophy**: Chinese Room Argument, Observer-Dependent Vacuum
-- **History**: Christmas Truce of 1914, The Man in the Iron Mask
-- **And many more...**
-
-## File Organization
-
+### Table of contents (optional plain text)
+```bash
+python3 generate_toc.py
+# outputs TABLE_OF_CONTENTS.txt
 ```
-├── main.tex                    # Main LaTeX document
-├── preamble.tex               # LaTeX preamble and packages
-├── intro.tex, prologue.tex    # Introduction materials
-├── cover/                     # Cover graphics
-├── utils/                     # Python management scripts
-├── 01_BanachTarskiParadox/    # Chapter directories
-│   ├── main.tex              # Chapter content
-│   ├── summary.tex           # Chapter summary  
-│   ├── technical.tex         # Technical details
-│   ├── imagefigure.tex       # Images and figures
-│   └── ...                   # Additional chapter files
+
+## Repository layout
+```text
+├── main.tex                  # Book entry point (Intro, Prologue, 50 chapters)
+├── preamble.tex              # Packages, macros, layout commands
+├── intro.tex, prologue.tex   # Front matter
+├── utils/                    # Build and analysis utilities
+│   ├── compile_realtime.py
+│   ├── generate_chapter_subset.py
+│   ├── analyze_chapters.py
+│   └── generate_page_table.py
+├── generate_toc.py           # Plain-text TOC generator
+├── 01_BanachTarskiParadox/
 ├── 02_TopologicalInsulators/
 ├── ...
-└── 53_BodySwappingPuzzle/
+└── 50_Consciousness/
 ```
 
-## Contributing
-
-When adding new chapters:
-1. Create a new indexed directory (`##_ChapterName/`)
-2. Add corresponding `\def\show##ChapterName{}` variable
-3. Include chapter in main.tex with `\ifdefined` block
-4. Update image paths to use indexed folder names
+## Troubleshooting
+- Activate your virtual environment first: `source venv/bin/activate`
+- If LaTeX fails, inspect `compile_pass1.log`, `compile_pass2.log`, and `main.log`
+- Ensure `lualatex` is on your PATH (TeX Live installed)
 
 ## License
-
-This project contains original content and educational materials covering various scientific and mathematical topics.
-
-## Build Status
-
-- ✅ LaTeX compilation working
-- ✅ Font dependencies resolved  
-- ✅ Image paths corrected
-- ✅ 53 chapters organized and indexed
-- ✅ Python utilities functional 
+Original content © David H. Silver. All rights reserved. 
