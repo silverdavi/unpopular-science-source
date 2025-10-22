@@ -1,0 +1,57 @@
+\begin{technical}
+    \sloppy
+    {\Large\textbf{Relativistic Quantum Chemistry and the Color of Gold}}\\[0.3em]
+    
+    \noindent\textbf{Quantum Mechanical Origin of High Electron Velocities}
+    
+    Electrons in atoms are described by wavefunctions obeying the Schrödinger equation:
+    \[
+    \left[ -\frac{\hbar^2}{2m} \nabla^2 - \frac{Ze^2}{r} \right] \psi = E \psi.
+    \]
+    The kinetic term penalizes localization, while the Coulomb term favors proximity to the nucleus. Their balance is constrained by the uncertainty principle: $\Delta x \cdot \Delta p \gtrsim \hbar$.
+    
+    Strong nuclear attraction forces wavefunction localization near $r = 0$, requiring large momentum components and thus high typical velocities.
+    
+    In quantum mechanics, velocity is an operator:
+    \[
+    \hat{v} = \hat{p}/m, \quad \hat{p} = -i\hbar \nabla.
+    \]
+
+    For hydrogen-like atoms, the expectation value scales as $\langle v \rangle \sim Z\alpha c$. Where $ \alpha \approx 1/137 $. For gold (\(Z = 79\)), this yields \(\langle v \rangle \approx 0.58c\), indicating that inner electrons reach relativistic speeds.
+    
+    \noindent\textbf{Relativistic Orbital Contraction}
+
+In Dirac hydrogenic theory, relativistic contraction is encoded in the Lorentz factor \(\gamma = \frac{1}{\sqrt{1 - (Z\alpha)^2}}\). As \(Z\) increases, \(\gamma\) decreases from 1, leading to contraction of \(s\) orbitals relative to the non-relativistic case; \(p\) and \(d\) orbitals respond differently because of spin–orbit coupling and relativistic mass effects.
+
+A compact heuristic sometimes used is \(v_{char} \sim Z\alpha c\) to illustrate that inner electron speeds can approach relativistic values as \(Z\) grows, though bound-state velocities do not have a single classical value.
+
+This contraction has consequences for interband transitions and optical properties, as discussed in the following section.
+    
+    \noindent\textbf{Electronic Transitions and Optical Properties}
+    
+    Gold's configuration is [Xe]4f$^{14}$5d$^{10}$6s$^1$. Due to relativistic 6s contraction, the 5d–6sp gap narrows to:
+    \[
+    \Delta E \approx 2.4\,\text{eV} \quad \Rightarrow \quad \lambda \approx 520\,\text{nm},
+    \]
+    in the blue region of the visible spectrum.
+    
+    In solids, these transitions span energy bands rather than discrete levels. Finite band widths and electron lifetimes broaden the absorption, leading to selective attenuation of blue light and reflection of red/green — the physical basis for gold’s color.
+    
+    \noindent\textbf{Other Relativistic Effects in Heavy Elements}
+    
+    \begin{itemize}[leftmargin=*]
+    \item \textbf{Platinum (Grayish-white)}: Strong 6s contraction occurs with 5d$^9$6s$^1$ configuration. The partially filled d-band crosses the Fermi level, causing continuous interband transitions across the visible spectrum rather than discrete transitions, yielding a darker, grayish appearance.
+    
+    \item \textbf{Mercury (Liquid)}: Extreme 6s contraction creates a filled, contracted 6s$^2$ shell that cannot effectively overlap with neighboring atoms' orbitals, preventing metallic bonding. This results in weak van der Waals forces only, yielding a melting point of -38.8°C.
+    \end{itemize}
+    
+
+\vspace{0.5em}
+\noindent\textbf{References:}\\
+{\footnotesize
+Williams, A. O. (1940). A Relativistic Self-Consistent Field for Cu\(^+\). \textit{Phys. Rev.}, \textbf{58}, 723.\\
+Mayers, D. F. (1957). Relativistic Self-Consistent Field Calculation for Mercury. \textit{Proc. R. Soc. Lond. A}, \textbf{241}, 93.\\
+Norrby, L. J. (1991). Why Is Mercury Liquid? Or, why do relativistic effects not get into chemistry textbooks? \textit{J. Chem. Educ.}, \textbf{68}, 110.\\
+Pyykkö, P., Desclaux, J. P. (1979). Relativity and the periodic system of elements. \textit{Acc. Chem. Res.}, \textbf{12} (8), 276-281.
+}
+\end{technical}

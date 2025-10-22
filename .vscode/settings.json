@@ -1,0 +1,29 @@
+{
+    // Auto-save settings to prevent data loss
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 10000,  // Save after 1 second of inactivity
+    
+    // Local History - VSCode's built-in file versioning
+    "workbench.localHistory.enabled": true,
+    "workbench.localHistory.maxFileSize": 256,  // Max file size in KB
+    "workbench.localHistory.maxFileEntries": 50,  // Keep last 50 versions per file
+    
+    // Git safety settings
+    "git.confirmSync": true,
+    "git.confirmForcePush": true,
+    "git.confirmPull": true,
+    "git.confirmEmptyCommits": true,
+    
+    // Editor backup settings
+    "files.hotExit": "onExitAndWindowClose",
+    
+    // Exclude heavy directories from file watching
+    "files.watcherExclude": {
+        "**/venv/**": true,
+        "**/*.pdf": true,
+        "**/compile_pass*.log": true
+    },
+    
+    // Custom warning for destructive git operations
+    "git.commandsToLog": ["push", "pull", "fetch", "commit", "checkout", "reset"]
+}

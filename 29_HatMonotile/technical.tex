@@ -1,0 +1,51 @@
+\begin{technical}
+{\Large\textbf{Transfer Matrix Method for Domino Tilings}}\\[0.3em]
+
+\noindent\textbf{Problem:} Count tilings of a $3 \times 2n$ cylinder with $1 \times 2$ dominoes.
+
+\noindent\textbf{Method:} View the tiling column by column. Each column's state describes which cells are occupied by dominoes from the previous column. Valid states (0 = empty, 1 = occupied):
+\[
+|0\rangle = \begin{pmatrix}0\\0\\0\end{pmatrix}, \quad
+|1\rangle = \begin{pmatrix}0\\1\\1\end{pmatrix}, \quad
+|2\rangle = \begin{pmatrix}1\\0\\0\end{pmatrix}
+\]
+\[
+|3\rangle = \begin{pmatrix}1\\0\\1\end{pmatrix}, \quad
+|4\rangle = \begin{pmatrix}1\\1\\0\end{pmatrix}, \quad
+|5\rangle = \begin{pmatrix}1\\1\\1\end{pmatrix}
+\]
+
+\noindent\textbf{Transfer Matrix:} Entry $T_{ij}$ counts ways to transition from state $i$ to state $j$. The $6 \times 6$ matrix is:
+\[
+T = \begin{pmatrix}
+1 & 1 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 1 & 0 \\
+0 & 0 & 0 & 1 & 0 & 1 \\
+1 & 0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 1
+\end{pmatrix}
+\]
+The number of tilings equals $\text{tr}(T^{2n})$ — cycles returning to the initial state.
+
+\noindent\textbf{Spectral Analysis:} The characteristic polynomial is
+\begin{align*}
+\det(T - \lambda I) = \lambda^6 - 3\lambda^4 - \lambda^3 + 3\lambda + 1
+\end{align*}
+The dominant eigenvalue $\lambda_1 \approx 1.8393$ determines the asymptotic growth. For large $n$:
+\begin{align*}
+\text{tr}(T^{2n}) \sim c \cdot (1.8393)^{2n}
+\end{align*}
+Entropy per unit area: $h = \frac{1}{6}\ln(\lambda_1^2) \approx 0.2028$.
+
+\noindent\textbf{Physical Connection:} This entropy equals the free energy of the dimer model on a cylindrical lattice at zero temperature: $f = -k_B T \ln Z$, where $Z = \text{tr}(T^N)$ at $T=0$. The transfer matrix method extends to compute correlations $\langle \tau_i \tau_j \rangle = T^{|i-j|}_{ab}/\lambda_1^{|i-j|}$. For planar regions, this connects to the Arctic circle phenomenon where random tilings exhibit frozen regions near boundaries.
+
+\noindent\textbf{Gerrymandering Analogy:} The transfer matrix counts legal configurations given constraints — like counting valid districtings given population and contiguity rules. For district graph $G$, the count is $N = \text{tr}(A_G^k)$ where $A_G$ encodes adjacency constraints. Both problems reduce to eigenvalue calculations: $N \sim \lambda_{\max}^k$ for large $k$.
+
+\vspace{0.5em}
+\noindent\textbf{References:}\\
+{\footnotesize
+Kenyon, R. (2009). \textit{Lectures on Dimers}. arXiv:0910.3129.\\
+Mohar, B., Thomassen, C. (2001). \textit{Graphs on Surfaces}. Johns Hopkins Press.
+}
+\end{technical}

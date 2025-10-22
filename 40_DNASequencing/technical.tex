@@ -1,0 +1,70 @@
+\begin{technical}
+{\Large\textbf{Illumina Sequencing and De Bruijn Assembly}}\\[0.3em]
+
+\textbf{Sequencing by Synthesis}\\[0.5em]
+Illumina uses reversible terminators with cleavable fluorescent labels. Each cycle:
+\begin{align*}
+&\text{DNA}_n + \text{dNTP-3'-block-fluor}\\
+&\quad\xrightarrow{\text{pol}} \text{DNA}_{n+1}\\
+&\text{Imaging} \rightarrow \text{Base identification}\\
+&\text{Chemical cleavage} \rightarrow \text{3'-OH restoration}
+\end{align*}
+
+Bridge amplification creates clonal clusters ($\sim10^3$ copies) on flow cell surface. Fluorescence signal $S \propto N_{\text{mol}}$ enables base calling with error rate $\varepsilon \approx 0.1\%$.
+
+\textbf{De Bruijn Graph Construction}\\[0.5em]
+For read set $\mathcal{R}$ with k-mer length $k$:
+\begin{align*}
+V &= \{w \in \Sigma^k : w \text{ appears in } \mathcal{R}\}\\
+E &= \{(u,v) : \text{suffix}_{k-1}(u)\\
+&\quad\quad = \text{prefix}_{k-1}(v)\}
+\end{align*}
+
+Each read of length $L$ contributes up to $L-k+1$ distinct vertices (k-mers) and $L-k$ edges along its path, compressing redundant sequence information.
+
+\textbf{Eulerian Path Assembly}\\[0.5em]
+Assembly seeks Eulerian path through $G$:
+\begin{align*}
+\text{Path} &= e_1e_2...e_m \text{ where}\\
+&\quad \forall i: \text{head}(e_i) = \text{tail}(e_{i+1})\\
+\text{Genome} &= \text{spell}(v_0) + \text{last}(e_1)\\
+&\quad + ... + \text{last}(e_m)
+\end{align*}
+
+For existence, the underlying graph over nonzero-degree vertices must be weakly connected and either:
+- All vertices balanced: in-degree = out-degree, or
+- Exactly two semi-balanced vertices (one with out-degree = in-degree + 1 and one with in-degree = out-degree + 1)
+
+\textbf{Coverage and k-mer Selection}\\[0.5em]
+Expected k-mer coverage:
+\[C_k = C_{\text{read}} \cdot \frac{L-k+1}{L}\]
+where $C_{\text{read}} = NL/G$ (reads $\times$ length / genome).
+
+Optimal $k$ balances:
+- Small $k$: More connections, higher coverage, ambiguity
+- Large $k$: Fewer repeats, lower coverage, gaps
+
+Typically $k \in [21, 127]$ for Illumina data.
+
+\textbf{Graph Complexity}\\[0.5em]
+Real graphs contain:
+\begin{itemize}[leftmargin=*, topsep=0pt, itemsep=0pt]
+\item \textbf{Bubbles}: SNPs/errors create parallel paths
+\item \textbf{Tips}: Coverage gaps form dead ends
+\item \textbf{Repeats}: Create branching/convergence
+\end{itemize}
+
+Error correction: Remove k-mers with coverage $<$ threshold.
+
+\textbf{Paired-End Constraints}\\[0.5em]
+Insert size $d \sim \mathcal{N}(\mu, \sigma^2)$ provides scaffolding:
+\[|p(r_1, r_2) - \mu| < 3\sigma\]
+where $p(r_1, r_2)$ is genomic distance between read pairs.
+
+\vspace{0.5em}
+\textbf{References:}\\
+{\footnotesize
+Bentley et al. (2008). \textit{Nature} 456:53-59.\\
+Pevzner et al. (2001). \textit{PNAS} 98:9748-9753.
+}
+\end{technical}

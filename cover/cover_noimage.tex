@@ -1,0 +1,136 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=15.54in,paperheight=10.25in,margin=0in]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fontspec}
+\usepackage{microtype}
+
+% More interesting font combinations
+\setmainfont{Baskerville}
+\setsansfont{Avenir Next}
+\newfontfamily\titlefont{Didot}
+\newfontfamily\modernfont{Futura}
+
+% Define colors
+\definecolor{boxgray}{RGB}{248,248,248}
+\definecolor{textblack}{RGB}{25,25,25}
+\definecolor{accentgray}{RGB}{100,100,100}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Define dimensions
+\newlength{\bleedwidth}
+\newlength{\coverwidth}
+\newlength{\coverheight}
+\newlength{\spinewidth}
+
+\setlength{\bleedwidth}{0.125in}
+\setlength{\coverwidth}{7in}
+\setlength{\coverheight}{10in}
+\setlength{\spinewidth}{1.29in}
+
+% tcolorbox settings
+\tcbset{
+  coverbox/.style={
+    colback=boxgray,
+    colframe=black,
+    boxrule=0.5pt,
+    arc=2mm,
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    fontupper=\color{textblack}
+  },
+  titlebox/.style={
+    colback=boxgray,
+    colframe=black,
+    boxrule=0.75pt,
+    sharp corners,
+    left=20pt,
+    right=20pt,
+    top=15pt,
+    bottom=15pt,
+    fontupper=\color{textblack}
+  }
+}
+
+\begin{document}
+% Draw a gray background to see the page
+\pagecolor{gray!20}
+
+\begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+  % Draw page outline
+  \draw[red, ultra thick] (0,0) rectangle (15.54in,10.25in);
+  
+  % Draw section dividers
+  \draw[blue, thick, dashed] (\bleedwidth,0) -- (\bleedwidth,10.25in);
+  \draw[blue, thick, dashed] ([xshift=\coverwidth]\bleedwidth,0) -- ([xshift=\coverwidth]\bleedwidth,10.25in);
+  \draw[blue, thick, dashed] ([xshift=\coverwidth+\spinewidth]\bleedwidth,0) -- ([xshift=\coverwidth+\spinewidth]\bleedwidth,10.25in);
+  \draw[blue, thick, dashed] ([xshift=2\coverwidth+\spinewidth]\bleedwidth,0) -- ([xshift=2\coverwidth+\spinewidth]\bleedwidth,10.25in);
+  
+  % Label sections
+  \node[anchor=south] at ([xshift=0.5\coverwidth]\bleedwidth,9.75in) {\Large\bfseries BACK COVER};
+  \node[anchor=south] at ([xshift=\coverwidth+0.5\spinewidth]\bleedwidth,9.75in) {\Large\bfseries SPINE};
+  \node[anchor=south] at ([xshift=\coverwidth+\spinewidth+0.5\coverwidth]\bleedwidth,9.75in) {\Large\bfseries FRONT COVER};
+  
+  % Calculate center positions
+  \pgfmathsetmacro{\spinecenterx}{(\bleedwidth+\coverwidth+0.5*\spinewidth)/1in}
+  \pgfmathsetmacro{\frontcenterx}{(\bleedwidth+\coverwidth+\spinewidth+0.5*\coverwidth)/1in}
+  \pgfmathsetmacro{\backcenterx}{(\bleedwidth+0.5*\coverwidth)/1in}
+  \pgfmathsetmacro{\pagecentery}{5.125}
+  
+  % SPINE TEXT (rotated 90 degrees)
+  \node[rotate=90, anchor=center] at (\spinecenterx in,\pagecentery in) {
+    \begin{tcolorbox}[coverbox, width=7.5in]
+      \centering\modernfont
+      \fontsize{17}{20}\selectfont
+      \textls[50]{UNPOPULAR SCIENCE} \hspace{3em} {\fontsize{15}{18}\selectfont\itshape David H. Silver}
+    \end{tcolorbox}
+  };
+  
+  % FRONT COVER - Title
+  \node[anchor=center] at (\frontcenterx in,7.925in) {
+    \begin{tcolorbox}[titlebox, width=6in]
+      \centering\titlefont\bfseries
+      \fontsize{40}{44}\selectfont
+      \textls[100]{UNPOPULAR}\\[-0.1em]
+      \fontsize{40}{44}\selectfont
+      \textls[100]{SCIENCE}
+    \end{tcolorbox}
+  };
+  
+  % FRONT COVER - Author
+  \node[anchor=center] at (\frontcenterx in,2.925in) {
+    \begin{tcolorbox}[coverbox, width=4in]
+      \centering\modernfont
+      \fontsize{26}{30}\selectfont
+      \textls[100]{DAVID H. SILVER}
+    \end{tcolorbox}
+  };
+  
+  % BACK COVER - Main description
+  \node[anchor=north] at (\backcenterx in,9.125in) {
+    \begin{tcolorbox}[coverbox, width=5.8in]
+      \fontsize{11.5}{16}\selectfont
+      \raggedright
+      Fifty phenomena from humanity's exploration of nature...
+      (shortened for visibility)
+    \end{tcolorbox}
+  };
+
+  % BACK COVER - Category and metadata
+  \node[anchor=south west] at (0.5in,0.5in) {
+    \begin{tcolorbox}[coverbox, width=3in]
+      \centering
+      \fontsize{10}{13}\selectfont\sffamily
+      \textbf{SCIENCE} $\cdot$ \textbf{MATHEMATICS} $\cdot$ \textbf{PHYSICS}\\[6pt]
+      Hardcover • 515 pages
+    \end{tcolorbox}
+  };
+  
+\end{tikzpicture}
+\end{document}

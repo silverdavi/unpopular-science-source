@@ -1,0 +1,39 @@
+% Electromagnetic Quantities Table
+% Moved from 04_EMFieldsEnergyFlow/main.tex for space optimization
+% Original location: lines 15-49
+
+\begin{tcolorbox}[title={Electromagnetic Quantities: Definitions, Units, and Dimensions}, 
+colback=gray!6, colframe=black!50, fonttitle=\bfseries, coltitle=black, boxrule=0.4pt, arc=1pt, 
+left=6pt, right=6pt, top=4pt, bottom=4pt]
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{>{\bfseries}l >{\bfseries}l X c c}
+\textbf{Symbol} & \textbf{Name} & \textbf{Meaning} & \textbf{SI Units} & \textbf{Dimensions} \\ \hline
+
+% Group: Field Quantities
+$\mathbf{E}$ & Electric field & Force / unit test charge & V/m & $\mathrm{MLT^{-3}I^{-1}}$ \\
+$\mathbf{B}$ & Magnetic field & Force / unit charge / velocity & T = V·s/m$^2$ & $\mathrm{MT^{-2}I^{-1}}$ \\
+$\mathbf{H}$ & Magnetic intensity & Rescaled mag. field: $\mathbf{B} = \mu \mathbf{H}$ & A/m & $\mathrm{IL^{-1}}$ \\
+
+% Group: Constants
+$\varepsilon_0$ & Vacuum permit. & Field / unit charge density & F/m & $\mathrm{M^{-1}L^{-3}T^4I^2}$ \\
+$\mu_0$ & Vacuum permea. & Field / unit current density & H/m & $\mathrm{MLT^{-2}I^{-2}}$ \\
+
+% Group: Derived Propagation Quantities
+$\mathbf{S}$ & Poynting vector & Energy flow / unit area & W/m$^2$ & $\mathrm{MT^{-3}}$ \\
+$u$ & Energy density & Energy / unit volume & J/m$^3$ & $\mathrm{ML^{-1}T^{-2}}$ \\
+$Z_0$ & Vacuum impedance & Ratio of electric to magnetic & $\approx 377\ \Omega$ & $\mathrm{ML^2T^{-3}I^{-2}}$ \\
+$c$ & Speed of light & Wave speed in vacuum & m/s & $\mathrm{LT^{-1}}$ \\
+
+% Group: Base Electrical Units
+$A$ & Ampere & Charge flow / unit time & C/s & $\mathrm{I}$ \\
+$F$ & Farad & Charge / unit voltage & C/V & $\mathrm{M^{-1}L^{-2}T^4I^2}$ \\
+$W$ & Watt & Energy / unit time & J/s & $\mathrm{ML^2T^{-3}}$ \\
+
+% Optional: Basic Circuit Quantities
+$Q$ & Charge & Net electric quantity & C & $\mathrm{IT}$ \\
+$V$ & Voltage & Energy / unit charge & V = J/C & $\mathrm{ML^2T^{-3}I^{-1}}$ \\
+$R$ & Resistance & Voltage / unit current & $\Omega = V/A$ & $\mathrm{ML^2T^{-3}I^{-2}}$ \\
+
+\end{tabularx}
+\end{tcolorbox}

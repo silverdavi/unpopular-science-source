@@ -1,0 +1,79 @@
+\begin{technical}
+{\Large\textbf{Bioluminescence Mechanics and Quantification}}\\[0.2em]
+
+\noindent\textbf{Molecular Reaction Pathway}\\
+Firefly luciferase ($\sim 62\,\text{kDa}$, 550–560 amino acids) catalyzes a two-step reaction:
+\begin{align*}
+&\text{Luciferase} + \text{D-Luciferin} + \text{ATP} \notag\\
+&\quad\rightarrow \text{Luciferase-luciferyl adenylate} + \text{PP}_i \notag\\
+&\text{Luciferase-luciferyl adenylate} + \text{O}_2 \notag\\
+&\quad\rightarrow \text{Oxyluciferin}^* + \text{AMP} + \text{CO}_2 \notag\\
+&\text{Oxyluciferin}^* \notag\\
+&\quad\rightarrow \text{Oxyluciferin} + \text{Light (560\,nm)}
+\end{align*}
+
+The emitted light has wavelength $\lambda$, corresponding to energy:
+
+\begin{equation}
+E = \frac{hc}{\lambda} = 
+\frac{(6.626 \times 10^{-34}\,\text{J·s}) (3 \times 10^8\,\text{m/s})}
+{560 \times 10^{-9}\,\text{m}} 
+\end{equation}
+
+\begin{equation}
+\approx 3.55 \times 10^{-19}\,\text{J}
+\end{equation}
+
+Each reaction cycle consumes one ATP molecule. At most one photon can be emitted per catalytic turnover; the actual number of emitted photons per turnover equals the chemiluminescence quantum yield (typically on the order of 0.4–0.6 under physiological conditions). ATP drives formation of the luciferyl-adenylate intermediate; the photon energy primarily derives from subsequent oxidation of luciferin. The high quantum yield indicates minimal energy loss through non-radiative pathways.
+
+\noindent\textbf{Cellular Organization}\\
+The light-producing cells (photocytes) contain the necessary biochemical machinery:
+
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item Photocyte density: $10^5$–$10^6$ per lantern
+    \item Luciferase molecules: $10^6$–$10^7$ per photocyte
+    \item ATP concentration: 2–5 mM in photocytes
+    \item Oxygen control: Regulated by nitric oxide signaling
+\end{itemize}
+
+Flash duration (200–300 ms) is controlled by oxygen availability via tracheal end cells that regulate gas diffusion to photocytes.
+
+\noindent\textbf{Photon Count Measurements}\\
+Modern spectrometer studies can be used to estimate counts of 
+$3 \times 10^8$–$5 \times 10^8$ photons per flash. Given a flash duration of 200–300 ms, the temporal photon emission rate is:
+\begin{align*}
+\Phi_{\text{photons}} &\approx 
+\frac{4 \times 10^8\,\text{photons}}{0.25\,\text{s}} \notag\\
+&\approx 1.6 \times 10^9\,\text{photons/s}
+\end{align*}
+
+Converting to radiometric power:
+\begin{align*}
+P &= \Phi_{\text{photons}} \cdot E_{\text{photon}} \\
+  &\approx (1.6 \times 10^9\,\text{s}^{-1}) \cdot (3.55 \times 10^{-19}\,\text{J}) \\
+  &\approx 5.7 \times 10^{-10}\,\text{W}
+\end{align*}
+
+This power output, while small in absolute terms, appears significant to human observers due to perceptual factors.
+\vspace{0.5em}
+
+\noindent\textbf{Optical and Perceptual Optimization}\\
+Firefly light appears significantly brighter than its raw power suggests due to: spectral peak near photopic sensitivity ($\sim$550$\,\text{nm}$), maximizing luminous efficacy; uric-acid crystal reflectors that direct internally scattered photons outward; surface texturing on the lantern that reduces interface reflection; and human dark adaptation, which increases apparent brightness in low light.
+
+The luminous flux can be estimated as:
+\begin{align*}
+\text{Luminous }&\text{flux} = P \cdot 683\,\text{lm/W} \\
+&\approx (5.7 \times 10^{-10}\,\text{W}) \cdot (683\,\text{lm/W}) \\
+&\approx 3.7 \times 10^{-7}\,\text{lm}
+\end{align*}
+
+While this raw luminous flux is extremely low, perceptual effects amplify the apparent brightness by several orders of magnitude. 
+
+\vspace{0.5em}
+\noindent\textbf{References:}\\
+{\footnotesize
+Harvey, E. N. (1920). The Nature of Animal Light.\\
+Wilson, T. \& Hastings, J.W. (1998). Bioluminescence. \textit{Annu. Rev. Cell Dev. Biol.}, \textbf{14}, 197-230.\\
+Shimomura, O. (2012). \textit{Bioluminescence: Chemical Principles and Methods}. World Scientific.\\
+}
+\end{technical}

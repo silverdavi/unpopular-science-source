@@ -1,0 +1,135 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=15.54in,paperheight=10.25in,margin=0in]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fontspec}
+\usepackage{microtype}
+
+% More interesting font combinations
+\setmainfont{Baskerville}
+\setsansfont{Avenir Next}
+\newfontfamily\titlefont{Didot}
+\newfontfamily\modernfont{Futura}
+
+% Define colors
+\definecolor{boxgray}{RGB}{248,248,248}
+\definecolor{textblack}{RGB}{25,25,25}
+\definecolor{accentgray}{RGB}{100,100,100}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Define dimensions
+\newlength{\bleedwidth}
+\newlength{\coverwidth}
+\newlength{\coverheight}
+\newlength{\spinewidth}
+
+\setlength{\bleedwidth}{0.125in}
+\setlength{\coverwidth}{7in}
+\setlength{\coverheight}{10in}
+\setlength{\spinewidth}{1.29in}
+
+% tcolorbox settings
+\tcbset{
+  coverbox/.style={
+    colback=boxgray,
+    colframe=black,
+    boxrule=0.5pt,
+    arc=2mm,
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    fontupper=\color{textblack}
+  },
+  titlebox/.style={
+    colback=boxgray,
+    colframe=black,
+    boxrule=0.75pt,
+    sharp corners,
+    left=20pt,
+    right=20pt,
+    top=15pt,
+    bottom=15pt,
+    fontupper=\color{textblack}
+  }
+}
+
+\begin{document}
+% First, let's draw a border to see the page boundaries
+\begin{tikzpicture}[remember picture,overlay]
+  % Draw page border
+  \draw[red, thick] (current page.south west) rectangle (current page.north east);
+  
+  % Draw division lines for back cover, spine, front cover
+  \draw[blue, dashed] ([xshift=\bleedwidth+\coverwidth]current page.south west) -- ([xshift=\bleedwidth+\coverwidth]current page.north west);
+  \draw[blue, dashed] ([xshift=\bleedwidth+\coverwidth+\spinewidth]current page.south west) -- ([xshift=\bleedwidth+\coverwidth+\spinewidth]current page.north west);
+  
+  % Label the sections
+  \node[anchor=north] at ([xshift=\bleedwidth+0.5\coverwidth, yshift=-0.5in]current page.north west) {\Large BACK COVER};
+  \node[anchor=north] at ([xshift=\bleedwidth+\coverwidth+0.5\spinewidth, yshift=-0.5in]current page.north west) {\Large SPINE};
+  \node[anchor=north] at ([xshift=\bleedwidth+\coverwidth+\spinewidth+0.5\coverwidth, yshift=-0.5in]current page.north west) {\Large FRONT COVER};
+  
+  % Place background image (commented out for debug)
+  % \node[anchor=south west, inner sep=0pt] at (current page.south west) {
+  %   \includegraphics[width=15.54in,height=10.25in]{cover_wrap_hires.png}
+  % };
+  
+  % SPINE TEXT (rotated 90 degrees)
+  \node[rotate=90, anchor=center, fill=yellow!30] 
+    at ([xshift=\bleedwidth+\coverwidth+0.5\spinewidth, yshift=0.5\paperheight]current page.south west) {
+    \begin{tcolorbox}[coverbox, width=7.5in]
+      \centering\modernfont
+      \fontsize{17}{20}\selectfont
+      \textls[50]{UNPOPULAR SCIENCE} \hspace{3em} {\fontsize{15}{18}\selectfont\itshape David H. Silver}
+    \end{tcolorbox}
+  };
+  
+  % FRONT COVER TEXT (right panel)
+  \coordinate (frontcenter) at ([xshift=\bleedwidth+\coverwidth+\spinewidth+0.5\coverwidth, yshift=0.5\paperheight]current page.south west);
+  
+  % Mark center point
+  \fill[green] (frontcenter) circle (5pt);
+  \node[anchor=west] at (frontcenter) {Front Center};
+  
+  % Title - positioned higher and larger
+  \node[anchor=center, fill=yellow!30] at ([yshift=2.8in]frontcenter) {
+    \begin{tcolorbox}[titlebox, width=6in]
+      \centering\titlefont\bfseries
+      \fontsize{40}{44}\selectfont
+      \textls[100]{UNPOPULAR}\\[-0.1em]
+      \fontsize{40}{44}\selectfont
+      \textls[100]{SCIENCE}
+    \end{tcolorbox}
+  };
+  
+  % Author - lower position, distinguished
+  \node[anchor=center, fill=yellow!30] at ([yshift=-2.2in]frontcenter) {
+    \begin{tcolorbox}[coverbox, width=4in]
+      \centering\modernfont
+      \fontsize{26}{30}\selectfont
+      \textls[100]{DAVID H. SILVER}
+    \end{tcolorbox}
+  };
+  
+  % BACK COVER TEXT (left panel)
+  \coordinate (backcenter) at ([xshift=\bleedwidth+0.5\coverwidth, yshift=0.5\paperheight]current page.south west);
+  
+  % Mark center point
+  \fill[green] (backcenter) circle (5pt);
+  \node[anchor=east] at (backcenter) {Back Center};
+  
+  % Main description
+  \node[anchor=north, fill=yellow!30] at ([yshift=-1in]backcenter) {
+    \begin{tcolorbox}[coverbox, width=5.8in]
+      \fontsize{11.5}{16}\selectfont
+      \raggedright
+      Fifty phenomena from humanity's exploration of nature...
+    \end{tcolorbox}
+  };
+  
+\end{tikzpicture}
+\end{document}

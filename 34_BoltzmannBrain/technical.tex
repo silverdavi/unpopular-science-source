@@ -1,0 +1,61 @@
+\begin{technical}
+{\Large\textbf{Entropy Bounds and Fluctuation Probabilities}}\\
+
+
+\noindent\textbf{De Sitter Equilibrium}\\
+The de Sitter horizon entropy (with $\Lambda \sim 10^{-122}$ in Planck units):
+\[
+S_\text{dS} = \frac{3\pi}{\Lambda} \sim 10^{122}\ \text{(Planck units)}
+\]
+
+\noindent\textbf{Fluctuation Probability}\\
+Any departure from equilibrium is exponentially suppressed:
+\[
+P(\mathcal{F}) \propto \exp(-\Delta S), \quad \Delta S = S_\text{dS} - S(\mathcal{F})
+\]
+
+\noindent\textbf{Standard Cosmological Evolution}\\
+Low-entropy Big Bang initial conditions require entropy deficit:
+\begin{align*}
+\Delta S_\text{cosmo} &\sim 10^{122} \Rightarrow \\
+ P_\text{cosmo} &\sim \exp(-10^{122})
+\end{align*}
+(Penrose's gravitational phase-space argument; estimates vary by factors of $10^1$–$10^3$)
+
+\noindent\textbf{Boltzmann Brain Fluctuation}\\
+De Sitter temperature: $T_\text{dS} \sim H/(2\pi) \sim 10^{-33}$ eV. Entropy cost to fluctuate a mass $M$ into existence:
+\begin{align*}
+\Delta S_\text{BB} &\simeq \frac{Mc^2}{T_\text{dS}} \\
+&\sim \frac{(1.4\,\text{kg})(9\times 10^{16}\,\text{J/kg})}{(10^{-33}\,\text{eV})(1.6\times 10^{-19}\,\text{J/eV})}\\
+ &\sim 10^{69}
+\end{align*}
+For $M \sim 1.4$ kg (human brain):
+Maintenance for duration $\tau$ at metabolic power $P \sim 20$ W adds $(P\tau)/(T_\text{dS}) \sim 10^{53}\tau_{\rm sec}$, negligible for brief fluctuations.
+
+\noindent\textbf{Probability Ratio}\\
+\[
+\frac{P_\text{BB}}{P_\text{cosmo}}\sim
+\exp\!\big(10^{122} - 10^{69}\big) \approx \exp(10^{122})
+\]
+Boltzmann Brains dominate by this incomprehensible factor.
+
+\noindent\textbf{Time Scales}\\
+Mean waiting time for first BB fluctuation in a horizon volume:
+\[
+t_\text{BB} \sim \exp(\Delta S_\text{BB}) \sim \exp(10^{69}) \text{ years}
+\]
+Poincaré recurrence time (full equilibrium restoration):
+\[
+t_\text{rec} \sim \exp(S_\text{dS}) \sim \exp(10^{122}) \text{ years}
+\]
+Both are incomprehensibly vast, but $t_\text{BB} \ll t_\text{rec}$. In eternal de Sitter expansion, even exponentially rare events occur infinitely often.
+
+\vspace{4pt}
+\noindent\emph{Note:} Page (2006) addresses vacuum decay rates needed to terminate de Sitter phase before BB dominance, not direct fluctuation probabilities.
+
+\noindent\textbf{References:}\\
+{\footnotesize
+Dyson, L., Kleban, M., Susskind, L. (2002). \textit{Disturbing Implications of a Cosmological Constant}.\\
+Page, D. N. (2006). \textit{Is Our Universe Likely to Decay within 20 Billion Years?} arXiv:hep-th/0610079.
+}
+\end{technical}

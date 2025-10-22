@@ -1,0 +1,31 @@
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.blg
+*.bbl
+*.dvi
+.DS_Store
+__pycache__/
+*.pyc
+venv/
+.env
+compile_pass*.log
+*_page_structure.csv
+*.csv
+
+# Documentation and notes (keep only README.md)
+*.md
+!README.md
+
+# Backup and recovery scripts
+.git_*.sh
+backup_project.sh
+recover_from_backup.sh
+setup_secondary_remote.sh
+
+# Large generated PDFs
+*.pdf
