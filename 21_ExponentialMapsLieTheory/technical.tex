@@ -20,12 +20,11 @@ Suppose \( K: \mathrm{Func}(\A{A}, \B{B}) \to \mathrm{Func}(\A{A}, \B{B}) \) sat
 
 \vspace{-0.5em}
 \begin{itemize}[leftmargin=3em,topsep=0pt,itemsep=0pt]
+  \item[(A)] Additivity: \( K(g \OpB{+} h) = K(g) \OpB{+} K(h) \)
   \item[(L)] Leibniz Rule: \( K(g \OpB{\cdot} h) = K(g) \OpB{\cdot} h \OpB{+} g \OpB{\cdot} K(h) \)
   \item[(C)] Kills Constants: \( K(c_{\B{b}}) = c_{\OpB{0}} \) where \( c_{\B{b}}(\A{x}) \equiv \B{b} \)
   \item[(T)] Translation Invariance: \( K \circ T_{\A{y}} = T_{\A{y}} \circ K \)
 \end{itemize}
-
-\textit{Note}: (L) and (C) together imply \( K \) is additive: \( K(g \OpB{+} h) = K(g \OpB{\cdot} c_{\OpB{1}} \OpB{+} h \OpB{\cdot} c_{\OpB{1}}) = K(g) \OpB{+} K(h) \).
 
 Let \( f \in \mathrm{Func}(\A{A}, \B{B}) \) and \( \B{\lambda} \in \B{B} \) satisfy:
 
@@ -49,7 +48,7 @@ K(g_{\A{y}}) &= K(T_{\A{y}}f) \notag\\
 Now define \( g(\A{x}) := f(\A{x} \OpA{+} \A{y}) \OpB{-} f(\A{x}) \OpB{\cdot} f(\A{y}) = g_{\A{y}}(\A{x}) \OpB{-} f(\A{x}) \OpB{\cdot} f(\A{y}) \).\\
 Then \( g(\OpA{0}) = f(\A{y}) \OpB{-} \OpB{1} \OpB{\cdot} f(\A{y}) = \OpB{0} \).
 
-Computing \( K(g) \) using (L) and (C) (with \( c_{f(\A{y})} \) the constant function):
+Computing \( K(g) \) using (A), (L), and (C) (with \( c_{f(\A{y})} \) the constant function):
 \begin{align*}
 K(g) &= K(g_{\A{y}}) \OpB{-} K(f \OpB{\cdot} c_{f(\A{y})}) \notag\\
 &= K(g_{\A{y}}) \OpB{-} (K(f) \OpB{\cdot} c_{f(\A{y})} \OpB{+} f \OpB{\cdot} K(c_{f(\A{y})})) \notag\\
@@ -64,7 +63,7 @@ Since \( K(g) = \B{\lambda} \OpB{\cdot} g \) and \( g(\OpA{0}) = \OpB{0} \), uni
 f(\A{x} \OpA{+} \A{y}) = f(\A{x}) \OpB{\cdot} f(\A{y})
 \]
 
-Hence the exponential property emerges from pure structure: \textbf{(L)} derivation, \textbf{(T)} translational symmetry, and \textbf{(U)} irreducibility. The functional equation \( f(x+y) = f(x)f(y) \) is a geometric necessity, of which the real exponential \( e^{x+y} = e^x e^y \) is a special case.
+Hence the exponential property emerges from pure structure: \textbf{(A)} additivity, \textbf{(L)} derivation, \textbf{(T)} translational symmetry, and \textbf{(U)} irreducibility. The functional equation \( f(x+y) = f(x)f(y) \) is a geometric necessity, of which the real exponential \( e^{x+y} = e^x e^y \) is a special case.
 
 \textit{Remark}: If (U) fails, we obtain \( f(\A{x} \OpA{+} \A{y}) = f(\A{x}) \OpB{\cdot} f(\A{y}) \OpB{+} h_{\A{y}}(\A{x}) \) where \( h_{\A{y}} \) lies in \( V_{\B{\lambda}}^{\OpA{0}} := \{g : K(g) = \B{\lambda} \OpB{\cdot} g, g(\OpA{0}) = \OpB{0}\} \). This error term satisfies a cocycle condition central to group cohomology, measuring "how far" \( f \) is from being a homomorphism.
 
