@@ -57,6 +57,17 @@
     top=15pt,
     bottom=15pt,
     fontupper=\color{textblack}
+  },
+  draftbox/.style={
+    colback=red!35,
+    colframe=red!55!black,
+    boxrule=0.5pt,
+    sharp corners,
+    left=6pt,
+    right=6pt,
+    top=4pt,
+    bottom=4pt,
+    fontupper=\color{white}\sffamily\bfseries
   }
 }
 
@@ -99,7 +110,7 @@
     \begin{tcolorbox}[coverbox, width=4in]
       \centering\modernfont
       \fontsize{26}{30}\selectfont
-      \textls[100]{DAVID H. SILVER}
+      \textls[100]{DAVID H. SILVER\\ DRAFT VER 100 OCT 23 2025}
     \end{tcolorbox}
   };
   
@@ -153,5 +164,6 @@
     \includegraphics{barcode.pdf}
   };
   
+
 \end{tikzpicture}
 \end{document}
