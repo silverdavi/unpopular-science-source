@@ -11,11 +11,11 @@ def clean_latex_text(text):
     """Remove LaTeX commands and clean up text for plain text output."""
     # Remove common LaTeX commands
     text = re.sub(r'\\[a-zA-Z]+\{([^}]*)\}', r'\1', text)  # \command{text} -> text
-    text = re.sub(r'\\[a-zA-Z]+', "", text)  # Remove \command
-    text = re.sub(r'\{|\}', "", text)  # Remove braces
+    text = re.sub(r'\\[a-zA-Z]+', '', text)  # Remove \command
+    text = re.sub(r'\{|\}', '', text)  # Remove braces
     text = re.sub(r'\$([^$]*)\$', r'\1', text)  # Remove $ math delimiters
-    text = re.sub(r'\\[()\[\]]', "", text)  # Remove \( \) \[ \]
-    text = re.sub(r'\\', "", text)  # Remove remaining backslashes
+    text = re.sub(r'\\[()\[\]]', '', text)  # Remove \( \) \[ \]
+    text = re.sub(r'\\', '', text)  # Remove remaining backslashes
     text = re.sub(r'\s+', ' ', text)  # Normalize whitespace
     return text.strip()
 

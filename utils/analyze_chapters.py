@@ -31,11 +31,11 @@ from datetime import datetime
 def count_words_and_chars(text):
     """Count words and characters in text, excluding LaTeX commands."""
     # Remove LaTeX comments
-    text = re.sub(r'%.*$', "", text, flags=re.MULTILINE)
+    text = re.sub(r'%.*$', '', text, flags=re.MULTILINE)
     
     # Remove LaTeX commands (simple heuristic)
-    text = re.sub(r'\\[a-zA-Z]+\*?(\[[^\]]*\])?(\{[^}]*\})*', "", text)
-    text = re.sub(r'\\[^a-zA-Z]', "", text)  # Remove \\ \& etc.
+    text = re.sub(r'\\[a-zA-Z]+\*?(\[[^\]]*\])?(\{[^}]*\})*', '', text)
+    text = re.sub(r'\\[^a-zA-Z]', '', text)  # Remove \\ \& etc.
     
     # Remove extra whitespace and newlines
     text = re.sub(r'\s+', ' ', text.strip())
@@ -119,7 +119,7 @@ def analyze_chapter(chapter_dir):
     standard_files = set(files_to_check.keys())
     actual_files = set(f.name for f in all_tex_files)
     extra_files = actual_files - standard_files
-    result['extra_files'] = ', '.join(sorted(extra_files)) if extra_files else ""
+    result['extra_files'] = ', '.join(sorted(extra_files)) if extra_files else ''
     
     return result
 
@@ -195,7 +195,7 @@ def generate_csv_report():
     ]
     
     # Write CSV
-    with open(csv_filename, 'w', newline="", encoding='utf-8') as csvfile:
+    with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(results)
