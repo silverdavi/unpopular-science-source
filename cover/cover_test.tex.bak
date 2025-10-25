@@ -1,0 +1,31 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=15.54in,paperheight=10.25in,margin=0in]{geometry}
+\usepackage{tikz}
+
+\pagestyle{empty}
+
+\begin{document}
+\noindent
+\begin{tikzpicture}[remember picture,overlay]
+  % Draw a border around the entire page
+  \draw[red, ultra thick] (current page.south west) rectangle (current page.north east);
+  
+  % Place a test rectangle in the center
+  \draw[blue, ultra thick, fill=yellow!20] 
+    ([xshift=-2in, yshift=-1in]current page.center) rectangle 
+    ([xshift=2in, yshift=1in]current page.center);
+  
+  % Label the corners
+  \node[anchor=north west] at (current page.north west) {NW};
+  \node[anchor=north east] at (current page.north east) {NE};
+  \node[anchor=south west] at (current page.south west) {SW};
+  \node[anchor=south east] at (current page.south east) {SE};
+  
+  % Show the center
+  \node[anchor=center] at (current page.center) {CENTER};
+  
+  % Show dimensions
+  \node[anchor=north] at (current page.north) {Width: 15.54in};
+  \node[anchor=west, rotate=90] at (current page.west) {Height: 10.25in};
+\end{tikzpicture}
+\end{document}

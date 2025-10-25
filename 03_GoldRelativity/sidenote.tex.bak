@@ -1,0 +1,15 @@
+\begin{SideNotePage}{
+  \textbf{Energy–Mass Equivalence} \par
+  A box of mass \(M\) and length \(L\) emits a light pulse of energy \(E\) from its left wall. The pulse carries momentum \(p = E/c\), so to conserve momentum, the box recoils leftward with velocity \(v = E/(M c)\). The pulse reaches the right wall in time \(t = L/c\), during which the box drifts left by \(\Delta x = v t = \frac{E L}{M c^2}\). After absorption, the box stops, but its position has shifted, violating center-of-mass conservation in an isolated system.
+
+  To avoid this, the emission must reduce the box's mass by \(\Delta M\) at the left wall. This mass loss shifts the system’s center of mass rightward by \(\Delta x' = \frac{\Delta M \cdot L}{M}\). Demanding \(\Delta x = \Delta x'\), we find: \( \Delta M \cdot L/M = E L/(M c^2) \). Thus, \(\Delta M = E/c^2\).
+ 
+  \vspace{0.5em}
+  \textbf{Relativistic Energy and Momentum} \par
+  In the middle-right panel, a massive particle crosses the box. The box recoils again, but now both rest mass and motion contribute. To ensure the laws of physics remain the same in all inertial reference frames (Lorentz symmetry), energy and momentum must transform as a four-vector. Using natural units (\(c = 1\)), one gets \(E^2 = m^2 + p^2\), linking rest mass and momentum to total energy.
+
+  \vspace{0.5em}
+  \textbf{Why Gold Is Yellow} \par
+  In the final panel, blue light is absorbed at the surface of a gold atom. Relativistic contraction of inner orbitals (due to high-velocity 6s electrons) shifts energy levels. This narrows the 5d–6s gap, bringing blue transitions into range. The missing blues tint the reflection yellow. Gold is yellow because relativity bends its atomic spectrum.
+}{03_GoldRelativity/03_ All That Gold Glitters.pdf}
+\end{SideNotePage}

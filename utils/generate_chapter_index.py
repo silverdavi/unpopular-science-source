@@ -15,8 +15,8 @@ def extract_title_content(file_path):
             content = f.read().strip()
             # Remove LaTeX commands and clean up
             content = re.sub(r'\\[a-zA-Z]+\{([^}]*)\}', r'\1', content)
-            content = re.sub(r'\\[a-zA-Z]+', '', content)
-            content = re.sub(r'[{}]', '', content)
+            content = re.sub(r'\\[a-zA-Z]+', "", content)
+            content = re.sub(r'[{}]', "", content)
             content = re.sub(r'\s+', ' ', content).strip()
             return content
     except:
@@ -124,7 +124,7 @@ def main():
             chapter_folder,
             topic,
             title_content,
-            main_pdf or '',
+            main_pdf or "",
             '; '.join(other_pdfs),
             'Yes' if tex_files['title.tex'] else 'No',
             'Yes' if tex_files['summary.tex'] else 'No',
@@ -142,7 +142,7 @@ def main():
     
     # Write CSV file
     output_file = 'chapter_index.csv'
-    with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+    with open(output_file, 'w', newline="", encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(headers)
         writer.writerows(csv_data)

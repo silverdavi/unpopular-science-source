@@ -90,7 +90,7 @@ class ChapterExtractor:
         
         for ch in sorted(self.chapters, key=lambda x: x['number'] if x['number'] else 999):
             num = str(ch['number']) if ch['number'] else '??'
-            status = ch['comment'] if ch['comment'] else ''
+            status = ch['comment'] if ch['comment'] else ""
             print(f"{num:>3} | {ch['directory']:<35} | {ch['label']:<25} | {status:<10}")
         
     def parse_chapter_spec(self, spec):

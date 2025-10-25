@@ -1,0 +1,62 @@
+% How Consonants Change: Voicing, Aspiration, and Place
+% Moved from 05_CircleWheel/main.tex for space optimization
+% Original location: lines 63-120
+
+\begin{tcolorbox}[
+  colback=gray!5,
+  colframe=black!60,
+  title={\textbf{How Consonants Change: Voicing, Aspiration, and Place}},
+  sharp corners,
+  boxrule=0.4pt,
+  fonttitle=\bfseries,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  enhanced,
+  before skip=10pt, after skip=10pt
+]
+
+Sound changes across languages often follow systematic rules. To understand them, we need a few basic concepts from articulatory phonetics, the physical production of speech, and how these map to historical reconstructions like those found in Proto-Indo-European (PIE).
+
+\medskip
+
+\begin{itemize}[leftmargin=*]
+
+\item \textbf{Voicing}: A consonant is said to be \emph{voiced} when the vocal cords vibrate during its articulation, and \emph{voiceless} when they remain still. For example:
+\begin{center}
+  {\ipafont Voiced: [b, d, g] \quad\quad Voiceless: [p, t, k]}
+\end{center}
+This distinction appears in languages (including PIE) and often survives in daughter languages as paired consonants (e.g., Latin \emph{pater} vs. English \emph{father}, from PIE \piefont{*ph₂tḗr}).
+
+\item \textbf{Aspiration}: This refers to a puff of breath that follows the release of a stop. In English, the \emph{p} in \emph{pin} is aspirated:
+\begin{center}
+  {\ipafont [pʰ]}, with breath \quad vs. \quad [p], without breath (as in \emph{spin})
+\end{center}
+PIE had distinct aspirated consonants, such as \piefont{*bʰ, *dʰ, *gʰ}, that evolved differently across its descendants.
+
+\item \textbf{Place of Articulation}: Consonants are also categorized by where in the vocal tract they are formed:
+  \begin{itemize}
+    \item \textbf{Dental}: Tongue touches the teeth, e.g., {\ipafont [t, d]}.
+    \item \textbf{Velar}: Back of the tongue meets the soft palate, e.g., {\ipafont [k, g]}.
+    \item \textbf{Glottal or Laryngeal}: Produced in the throat, e.g., PIE \piefont{*h₁}, \piefont{*h₂}, \piefont{*h₃}.
+  \end{itemize}
+These distinctions affect both pronunciation and historical outcomes. For example, PIE velars sometimes split into palatals or labiovelars in different branches.
+
+\item \textbf{Voiced Aspirated Stops in PIE}: These consonants combine voicing and aspiration, like {\piefont *dʰ}, pronounced roughly as {\ipafont [dʱ]}. They underwent major shifts in Indo-European daughter languages:
+  \begin{itemize}
+    \item \piefont{*dʰ} $\rightarrow$ Greek \emph{th} ({\ipafont [θ]}), a voiceless fricative.
+    \item \piefont{*dʰ} $\rightarrow$ Germanic \emph{d}, a plain voiced stop (part of Grimm's Law, after first losing aspiration in Proto-Germanic).
+  \end{itemize}
+Such changes are regular and predictive, forming the backbone of the comparative method.
+
+\item \textbf{The Laryngeals} (\piefont{*h₁}, \piefont{*h₂}, \piefont{*h₃}): PIE contained a set of consonants that often vanish in daughter languages but leave behind detectable effects:
+  \begin{itemize}
+    \item They modify adjacent vowels (length, coloring, or breaking). Specifically, \piefont{*h₂} colors adjacent vowels toward "a" quality.
+    \item They frequently disappear phonetically, leaving only their traces.
+  \end{itemize}
+A famous example: \piefont{*péh₂ur} "fire" became Greek \emph{pyr} and Latin \emph{pur}, with the laryngeal affecting vowel quality but not surviving as a consonant.
+
+\end{itemize}
+
+\medskip
+
+These sound shifts follow typologically common patterns. Understanding the articulatory mechanics behind them allows us to trace language history with surprising precision.
+\end{tcolorbox}

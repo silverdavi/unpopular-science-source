@@ -1,0 +1,40 @@
+
+The following table summarizes some key properties across different potential spatial dimensions $N$, highlighting the unique convergence of favorable characteristics in $N=3$ (i.e., $D=4$ spacetime):
+
+\definecolor{lightgreen}{rgb}{0.9, 0.95, 0.9}
+\rowcolors{2}{gray!6}{white}
+\renewcommand{\arraystretch}{1.25}
+\arrayrulecolor{gray!60}
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabular}{|>{\centering\arraybackslash}p{4.2cm}|c|c|c|c|}
+    \specialrule{.1em}{0em}{0em}
+    \rowcolor{gray!15}
+    \textbf{Property} & \textbf{Spatial Dim $N=2$} & \textbf{$N=3$} & \textbf{$N=4$} & \textbf{$N=5$} \\
+    \specialrule{.1em}{0em}{0.2em}
+    \textbf{Spacetime Dim $D = N+1$} & 3 & 4 & 5 & 6 \\
+    \midrule
+    Grav/EM Force Law Exponent ($\sim r^{-k}$) & $k=1$ & \cellcolor{lightgreen}$k=2$ & $k=3$ & $k=4$ \\
+    \midrule
+    Stable Planetary Orbits (Classical) & Unstable & \cellcolor{lightgreen}Stable & Unstable & Unstable \\
+    \midrule
+    Huygens' Principle (Sharp Waves?) & No (Tails) & \cellcolor{lightgreen}Yes & No (Tails) & No (Tails) \\
+    \midrule
+    Knotting Behavior (1D Knots in $\mathbb{R}^N$) & Trivial & \cellcolor{lightgreen}Non-trivial & Trivial & Trivial \\
+    \midrule
+    Gauge Theory Renormalizability & \cellcolor{lightgreen}Super-Renorm. & \cellcolor{lightgreen}Renormalizable & Non-Renorm. & Non-Renorm. \\
+    \midrule
+    Atomic Stability (Coulomb Ground St.) & Unstable & \cellcolor{lightgreen}Stable & Unstable & Unstable \\
+    \midrule
+    Yang-Mills Conformal Invariance & No & \cellcolor{lightgreen}Yes (Scale-invariant) & No & No \\
+    \midrule
+    SO(N+1) Lie Algebra Structure & Simple & \cellcolor{lightgreen}Split as $\mathfrak{so}(3) \oplus \mathfrak{so}(3)$ & Simple & Simple \\
+    \midrule
+    Regular Polytopes (Beyond Simplex, Cube, Cross) & 0 & \cellcolor{lightgreen}3 & 0 & 0 \\
+    \specialrule{.1em}{0.2em}{0em}
+    \end{tabular}
+    \caption{Dimension-dependent physical and mathematical properties. Green indicates favorable or unique behaviors.}
+    \label{tab:dimension-properties}
+\end{table}

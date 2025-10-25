@@ -64,7 +64,7 @@ def parse_toc_file(toc_file):
         
         for chapter_num, title, page_num in chapter_matches:
             # Clean up the title
-            title = re.sub(r'\\\\.*$', '', title).strip()
+            title = re.sub(r'\\\\.*$', "", title).strip()
             title = re.sub(r'\s+', ' ', title)
             
             toc_info[int(page_num)] = {
@@ -113,7 +113,7 @@ def analyze_log_file(log_file):
                 path_parts = file_path.split('/')
                 if len(path_parts) == 2:
                     chapter_dir = path_parts[0]
-                    filename = path_parts[1].replace('.tex', '')
+                    filename = path_parts[1].replace('.tex', "")
                     
                     # Extract chapter number and name
                     chapter_match = re.match(r'(\d+)_(.+)', chapter_dir)
@@ -269,7 +269,7 @@ def generate_page_table(pdf_file, base_name):
         elif page_num in aux_data:
             if aux_data[page_num].get('type') == 'chapter_start':
                 actual_chapter = aux_data[page_num]['chapter']
-                actual_chapter_name = aux_data[page_num].get('label', '')
+                actual_chapter_name = aux_data[page_num].get('label', "")
                 chapter_start_page = page_num
                 current_chapter = actual_chapter
                 current_chapter_name = actual_chapter_name
@@ -297,7 +297,7 @@ def generate_page_table(pdf_file, base_name):
     csv_file = f'{base_name}_page_structure.csv'
     
     try:
-        with open(csv_file, 'w', newline='', encoding='utf-8') as f:
+        with open(csv_file, 'w', newline="", encoding='utf-8') as f:
             fieldnames = ['page', 'chapter', 'chapter_name', 'section', 'page_in_chapter', 'page_in_section', 'has_warning', 'warning_type']
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             

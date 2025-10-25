@@ -1,0 +1,169 @@
+% cd /Users/davidsilver/dev/private/unpopular-science-book.FRESH-clone/cover && lualatex --interaction=nonstopmode cover_refined.tex
+
+\documentclass[10pt]{article}
+\usepackage[paperwidth=15.66in,paperheight=10in,margin=0in]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fontspec}
+\usepackage{microtype}
+
+% More interesting font combinations
+\setmainfont{Baskerville}
+\setsansfont{Avenir Next}
+\newfontfamily\titlefont{Didot}
+\newfontfamily\modernfont{Futura}
+
+% Define colors
+\definecolor{boxgray}{RGB}{248,248,248}
+\definecolor{textblack}{RGB}{25,25,25}
+\definecolor{accentgray}{RGB}{100,100,100}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Define dimensions
+\newlength{\bleedwidth}
+\newlength{\coverwidth}
+\newlength{\coverheight}
+\newlength{\spinewidth}
+
+\setlength{\bleedwidth}{0.125in}
+\setlength{\coverwidth}{7in}
+\setlength{\coverheight}{10in}
+\setlength{\spinewidth}{1.29in}
+
+% tcolorbox settings
+\tcbset{
+  coverbox/.style={
+    colback=boxgray,
+    colframe=black,
+    boxrule=0.5pt,
+    arc=2mm,
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    fontupper=\color{textblack}
+  },
+  titlebox/.style={
+    colback=boxgray,
+    colframe=black,
+    boxrule=0.75pt,
+    sharp corners,
+    left=20pt,
+    right=20pt,
+    top=15pt,
+    bottom=15pt,
+    fontupper=\color{textblack}
+  },
+  draftbox/.style={
+    colback=red!35,
+    colframe=red!55!black,
+    boxrule=0.5pt,
+    sharp corners,
+    left=6pt,
+    right=6pt,
+    top=4pt,
+    bottom=4pt,
+    fontupper=\color{white}\sffamily\bfseries
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay]
+  % Place background image centered on page
+  \node[anchor=center, inner sep=0pt] at (current page.center) {
+    \includegraphics[width=15.66in,height=10in,keepaspectratio=false]{cover_wrap_hires.png}
+  };
+  
+  % The spine center is exactly at the page center
+  % Back cover center is to the left, front cover center is to the right
+  
+  % SPINE TEXT (rotated 90 degrees) - centered on page
+  \node[rotate=90, anchor=center] at (current page.center) {
+    \begin{tcolorbox}[coverbox, width=7.5in]
+      \centering\modernfont
+      \fontsize{17}{20}\selectfont
+      \textls[50]{UNPOPULAR SCIENCE} \hspace{3em} {\fontsize{15}{18}\selectfont\itshape David H. Silver}
+    \end{tcolorbox}
+  };
+  
+  % FRONT COVER TEXT (right panel)
+  % Front cover center is spine/2 + coverwidth/2 to the right of page center
+  \pgfmathsetmacro{\frontoffset}{0.5*\spinewidth + 0.5*\coverwidth}
+  
+  % Title
+  \node[anchor=center] at ([xshift=\frontoffset, yshift=2.8in]current page.center) {
+    \begin{tcolorbox}[titlebox, width=6in]
+      \centering\titlefont\bfseries
+      \fontsize{40}{44}\selectfont
+      \textls[100]{UNPOPULAR}\\[-0.1em]
+      \fontsize{40}{44}\selectfont
+      \textls[100]{SCIENCE}
+    \end{tcolorbox}
+  };
+  
+  % Author
+  \node[anchor=center] at ([xshift=\frontoffset, yshift=-2.2in]current page.center) {
+    \begin{tcolorbox}[coverbox, width=4in]
+      \centering\modernfont
+      \fontsize{26}{30}\selectfont
+      \textls[100]{DAVID H. SILVER\\ DRAFT VER 100 OCT 23 2025}
+    \end{tcolorbox}
+  };
+  
+  % BACK COVER TEXT (left panel)
+  % Back cover center is spine/2 + coverwidth/2 to the left of page center
+  \pgfmathsetmacro{\backoffset}{-0.5*\spinewidth - 0.5*\coverwidth}
+  
+  % Main description
+  \node[anchor=north] at ([xshift=\backoffset, yshift=4.125in]current page.center) {
+    \begin{tcolorbox}[coverbox, width=5.8in]
+      \fontsize{11.5}{16}\selectfont
+      \raggedright
+      Fifty phenomena from humanity's exploration of nature. Each chapter moves from historical context through the main exposition to rigorous technical analysis.
+      
+      \vspace{0.5em}
+      The Banach-Tarski paradox mathematically duplicates spheres. Quantum tunneling powers the sun despite insufficient temperatures. Gold's yellow color comes from relativistic effects at 58\% light speed. Trees build themselves from thin air, converting CO₂ into solid mass. Maxwell's Demon sorts molecules to reverse entropy until information theory intervenes. Topological insulators conduct electricity only on their surfaces. Time dilation from gravity drives apples to fall from trees. The false vacuum could annihilate our universe at light speed. Cosmic ray muons reach Earth's surface only because time slows at high velocity.
+      
+      \vspace{0.5em}
+      For readers curious enough to want the actual mathematics, tired of science communication that oversimplifies or sensationalizes. Science as it actually is: demanding, complex, but well worth the effort.
+    \end{tcolorbox}
+  };
+
+  % About the Author - middle of back cover
+  \node[anchor=north] at ([xshift=\backoffset, yshift=-0.5in]current page.center) {
+    \begin{tcolorbox}[coverbox, width=5.8in]
+      \fontsize{10}{14}\selectfont
+      \raggedright
+      \textbf{About the Author}
+      
+      \vspace{0.3em}
+      David H. Silver is an industrial researcher bridging various fields of science and engineering. He studied mathematics, computer science, and biology, and was awarded a Microsoft Research PhD Fellowship. His work spans a dozen peer-reviewed publications, from biology at Nature to game-show analysis at PLoS One, and over a dozen patents. Silver has held research and engineering positions at Apple and Intel, and served as CTO of a few companies while maintaining academic collaborations with researchers around the world.
+    \end{tcolorbox}
+  };
+
+  % Category and metadata - bottom left of back cover
+  \node[anchor=south west] at ([xshift=0.5in, yshift=0.5in]current page.south west) {
+    \begin{tcolorbox}[coverbox, width=3in]
+      \centering
+      \fontsize{10}{13}\selectfont\sffamily
+      \textbf{SCIENCE} $\cdot$ \textbf{MATHEMATICS} $\cdot$ \textbf{PHYSICS}\\[6pt]
+      Hardcover • 518 pages\\[4pt]
+      \fontsize{9}{11}\selectfont
+      \textit{with 50 illustrations by}\\[-2pt]
+      \includegraphics[height=32pt]{../Jess.png}
+    \end{tcolorbox}
+  };
+  
+  % ISBN Barcode - bottom right of back cover (separate from metadata box)
+  \pgfmathsetmacro{\barcoderight}{\backoffset + 0.5*\coverwidth - 0.3}
+  \node[anchor=south east] at ([xshift=\barcoderight, yshift=0.5in]current page.south) {
+    \includegraphics{barcode.pdf}
+  };
+  
+
+\end{tikzpicture}
+\end{document}

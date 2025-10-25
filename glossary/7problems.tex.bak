@@ -1,0 +1,46 @@
+\fullpageexercises[Clay Millennium Problems]
+{
+\section*{Seven Problems in Modern Mathematics}  
+This chapter included the Navier–Stokes equations, one of seven problems identified by the Clay Mathematics Institute. These problems span analysis, geometry, number theory, and theoretical computation. In most cases, expertise in the relevant domain is required to even formulate the problem precisely. Their statements involve advanced structures and assume familiarity with both the definitions and the framework in which those definitions are meaningful.
+
+
+\begin{enumerate}
+    \vspace{1em}
+    \item \textbf{P vs NP}  
+    \textit{Question:} Is every decision problem whose solutions can be verified in polynomial time also solvable in polynomial time?  
+    \textit{Disciplines:} Complexity theory, discrete mathematics.\\
+    \textit{Structure:} The distinction between \(\mathbf{P}\) and \(\mathbf{NP}\) captures the difference between verifying a solution and finding one. It frames what is computationally feasible.
+    \vspace{1em}
+    \item \textbf{Hodge Conjecture}  
+    \textit{Question:} Do rational cohomology classes of type \((p,p)\) on smooth projective varieties arise from algebraic cycles?  
+    \textit{Disciplines:} Algebraic geometry, topology.\\
+    \textit{Structure:} The problem asks whether certain analytic invariants always correspond to geometric subvarieties defined by equations.
+    \vspace{1em}
+    \item \textbf{Poincaré Conjecture (solved)}  
+    \textit{Statement:} Every closed, simply connected 3-manifold is homeomorphic to the 3-sphere.  
+    \textit{Disciplines:} Topology, geometric analysis.\\
+    \textit{Structure:} Solved by Perelman using Ricci flow. The result classifies three-manifolds via curvature evolution.
+    \vspace{1em}
+    \item \textbf{Riemann Hypothesis}  
+    \textit{Question:} Are all nontrivial zeros of the Riemann zeta function located on the line \( \text{Re}(s) = \tfrac{1}{2} \)?  
+    \textit{Disciplines:} Number theory, complex analysis.\\
+    \textit{Structure:} The location of these zeros governs error terms in prime-counting estimates and constrains fluctuations in arithmetic sequences.
+    \vspace{1em}
+    \item \textbf{Yang–Mills Theory and Mass Gap}  
+    \textit{Question:} Does a quantum Yang–Mills theory on \( \mathbb{R}^4 \) exist with a positive energy gap?  
+    \textit{Disciplines:} Quantum field theory, geometry.\\
+    \textit{Structure:} The problem seeks a non-perturbative formulation with finite energy spectrum consistent with observed particle masses.
+    \vspace{1em}
+    \item \textbf{Navier–Stokes Existence and Smoothness}  
+    \textit{Question:} Do smooth initial data for incompressible flow always yield globally smooth solutions?  
+    \textit{Disciplines:} PDEs, fluid mechanics.\\
+    \textit{Structure:} A solution would establish whether singularities can form in finite time under the classical fluid equations.
+    \vspace{1em}
+    \item \textbf{Birch and Swinnerton-Dyer Conjecture}  
+    \textit{Question:} Does the order of vanishing of an elliptic curve’s \(L\)-function at \(s = 1\) equal the rank of its rational points?  
+    \textit{Disciplines:} Arithmetic geometry, modular forms.\\
+    \textit{Structure:} The conjecture links analytic properties of \(L\)-functions to the algebraic structure of rational solutions.
+\end{enumerate}
+    \vspace{1em}
+\textit{Note:} The Poincaré Conjecture is resolved. The others remain open.
+}

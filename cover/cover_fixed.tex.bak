@@ -1,0 +1,135 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=15.54in,paperheight=10.25in,margin=0in]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fontspec}
+\usepackage{microtype}
+
+% More interesting font combinations
+\setmainfont{Baskerville}
+\setsansfont{Avenir Next}
+\newfontfamily\titlefont{Didot}
+\newfontfamily\modernfont{Futura}
+
+% Define colors
+\definecolor{boxgray}{RGB}{248,248,248}
+\definecolor{textblack}{RGB}{25,25,25}
+\definecolor{accentgray}{RGB}{100,100,100}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Define dimensions
+\newlength{\bleedwidth}
+\newlength{\coverwidth}
+\newlength{\coverheight}
+\newlength{\spinewidth}
+
+\setlength{\bleedwidth}{0.125in}
+\setlength{\coverwidth}{7in}
+\setlength{\coverheight}{10in}
+\setlength{\spinewidth}{1.29in}
+
+% tcolorbox settings
+\tcbset{
+  coverbox/.style={
+    colback=boxgray,
+    colframe=black,
+    boxrule=0.5pt,
+    arc=2mm,
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    fontupper=\color{textblack}
+  },
+  titlebox/.style={
+    colback=boxgray,
+    colframe=black,
+    boxrule=0.75pt,
+    sharp corners,
+    left=20pt,
+    right=20pt,
+    top=15pt,
+    bottom=15pt,
+    fontupper=\color{textblack}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+  % Place background image
+  \node[anchor=south west, inner sep=0pt] at (0,0) {
+    \includegraphics[width=15.54in,height=10.25in]{cover_wrap_hires.png}
+  };
+  
+  % Calculate positions
+  \newcommand{\spinecenterx}{\dimexpr\bleedwidth+\coverwidth+0.5\spinewidth\relax}
+  \newcommand{\frontcenterx}{\dimexpr\bleedwidth+\coverwidth+\spinewidth+0.5\coverwidth\relax}
+  \newcommand{\backcenterx}{\dimexpr\bleedwidth+0.5\coverwidth\relax}
+  \newcommand{\pagecentery}{5.125in}
+  
+  % SPINE TEXT (rotated 90 degrees)
+  \node[rotate=90, anchor=center] at (\spinecenterx,\pagecentery) {
+    \begin{tcolorbox}[coverbox, width=7.5in]
+      \centering\modernfont
+      \fontsize{17}{20}\selectfont
+      \textls[50]{UNPOPULAR SCIENCE} \hspace{3em} {\fontsize{15}{18}\selectfont\itshape David H. Silver}
+    \end{tcolorbox}
+  };
+  
+  % FRONT COVER - Title
+  \node[anchor=center] at (\frontcenterx,7.925in) {
+    \begin{tcolorbox}[titlebox, width=6in]
+      \centering\titlefont\bfseries
+      \fontsize{40}{44}\selectfont
+      \textls[100]{UNPOPULAR}\\[-0.1em]
+      \fontsize{40}{44}\selectfont
+      \textls[100]{SCIENCE}
+    \end{tcolorbox}
+  };
+  
+  % FRONT COVER - Author
+  \node[anchor=center] at (\frontcenterx,2.925in) {
+    \begin{tcolorbox}[coverbox, width=4in]
+      \centering\modernfont
+      \fontsize{26}{30}\selectfont
+      \textls[100]{DAVID H. SILVER}
+    \end{tcolorbox}
+  };
+  
+  % BACK COVER - Main description
+  \node[anchor=north] at (\backcenterx,9.125in) {
+    \begin{tcolorbox}[coverbox, width=5.8in]
+      \fontsize{11.5}{16}\selectfont
+      \raggedright
+      Fifty phenomena from humanity's exploration of nature. Each chapter moves from historical context through clear explanation to the hardcore mathematics underneath.
+      
+      \vspace{0.5em}
+      The technical sections are genuinely difficult — that's the point. Like references in a research paper, they're the scaffolding that hints that the simplified version stands on solid ground, inviting readers to dive down the rabbit hole.
+      
+      \vspace{0.5em}
+      The Banach-Tarski paradox mathematically duplicates spheres. Quantum tunneling powers the sun despite insufficient temperatures. Gold's yellow color comes from electrons' effective velocity of 58\% light speed. Trees build themselves from thin air, converting CO₂ into solid mass. Maxwell's Demon sorts molecules to reverse entropy until information theory catches up.
+      
+      \vspace{0.5em}
+      This book presents science as it actually is: demanding, complex, but oh boy, it's worth the effort.
+    \end{tcolorbox}
+  };
+
+  % BACK COVER - Category and metadata
+  \node[anchor=south west] at (0.5in,0.5in) {
+    \begin{tcolorbox}[coverbox, width=3in]
+      \centering
+      \fontsize{10}{13}\selectfont\sffamily
+      \textbf{SCIENCE} $\cdot$ \textbf{MATHEMATICS} $\cdot$ \textbf{PHYSICS}\\[6pt]
+      Hardcover • 515 pages\\[4pt]
+      \fontsize{9}{11}\selectfont
+      \textit{with 50 illustrations by}\\[-2pt]
+      \textit{Jessica D.G. Hayes}
+    \end{tcolorbox}
+  };
+  
+\end{tikzpicture}
+\end{document}
