@@ -169,7 +169,7 @@ def get_chapter_folder_info(basename="main"):
             
             # Remove comment blocks first
             # Remove \begin{comment}...\end{comment} blocks
-            content_no_comments = re.sub(r'\\begin\{comment\}.*?\\end\{comment\}', "", content, flags=re.DOTALL)
+            content_no_comments = re.sub(r'\\begin\{comment\}.*?\\end\{comment\}', '', content, flags=re.DOTALL)
             
             # Find all \inputstory{folder_name} entries in order
             input_pattern = r'\\inputstory\{([^}]+)\}'
@@ -291,7 +291,7 @@ def save_csv_report(results, stats, basename="main"):
         'page_length'
     ]
     
-    with open(csv_filename, 'w', newline="", encoding='utf-8') as csvfile:
+    with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(results)
