@@ -78,26 +78,26 @@ gh auth login          # Authenticate
 Each chapter includes a custom visual sidenote page. Here are examples from 5 chapters:
 
 ### Chapter 01: Banach-Tarski Paradox
-![Banach-Tarski Sidenote](01_BanachTarskiParadox/01_%20An%20Axiom%20of%20Your%20Choice.pdf)
+![Banach-Tarski Sidenote](README_SOURCE/ch01_banach_tarski.png)
 
 **Hilbert's Hotel with Infinite Buses:** An infinite number of buses, each carrying infinitely many passengers, arrives at a hotel with countably infinite rooms. To accommodate everyone, each passenger _n_ on bus _m_ is assigned to room _(p_n)^m_, where _p_n_ is the _n_th prime number. No two passengers ever collide, since distinct prime powers are never equal.
 
 **Banach-Tarski as a Card Game:** Imagine a deck with cards A, B, A⁻¹, B⁻¹, where you can make any pile of cards, under one rule: A and A⁻¹ cancel, B and B⁻¹ cancel (the cards disappear if they are next to one another). Each card represents a rigid rotation. Four players each take all reduced sequences beginning with a specific card, forming four disjoint point sets. By prepending rotations, these sets can be recombined to form two full copies of the sphere.
 
 ### Chapter 05: Circle and Wheel Etymology
-![Indo-European Language Tree](05_CircleWheel/05_%20A%20Full%20Circle%20of%20PIE.pdf)
+![Indo-European Language Tree](README_SOURCE/ch05_language_tree.png)
 
 **Indo-European Language Family Tree:** This phylogenetic reconstruction illustrates the hierarchical relationships among Indo-European languages, flowing from Proto-Indo-European (PIE) on the left to modern languages on the right. The tree demonstrates the systematic branching described by the comparative method, where shared innovations define intermediate nodes and regular sound correspondences link ancestral forms to their descendants. The PIE root *kʷékʷlos ("wheel, circle") appears across multiple branches with predictable phonological transformations: Greek κύκλος (_kyklos_) via labiovelar to velar shift, Sanskrit चक्र (_chakra_) through labiovelar palatalization, and English "wheel" via Grimm's Law (*kʷ > hw).
 
 ### Chapter 10: Solar Fusion and Quantum Tunneling
-![Solar Fusion Process](10_SolarFusionQuantumTunneling/10_%20The%20Tunnel%20at%20the%20Beginning%20of%20Light.pdf)
+![Solar Fusion Process](README_SOURCE/ch10_solar_fusion.png)
 
 **Solar Fusion Process:** This diagram illustrates the _proton-proton (pp) chain_, the dominant fusion process in the Sun's core, where hydrogen nuclei (protons) fuse into helium, releasing energy. The chain converts 4 protons into 1 helium-4 nucleus, with energy carried by gamma rays, neutrinos, and kinetic energy of the particles.
 
 **Quantum Tunneling:** Enables this entire process by allowing particles to skip energy barriers. The barrier dampens the probability wave without zeroing it. This quantum mechanical effect permits fusion to occur at the Sun's core temperature (15 million K), where classical physics predicts negligible fusion rates due to insufficient thermal energy to overcome the Coulomb barrier between protons.
 
 ### Chapter 25: Firefly Bioluminescence
-![Firefly Bioluminescence Scales](25_FireflyBioluminescence/25_%20Let%20There%20Be%20Bioluminsecence.pdf)
+![Firefly Bioluminescence Scales](README_SOURCE/ch25_firefly_scales.png)
 
 A multi-scale visualization of firefly light production:
 - **Molecular Reaction (Ångström scale):** Luciferin is enzymatically converted into luciferyl-adenylate, then oxidized into oxyluciferin, releasing a visible photon.
@@ -109,7 +109,7 @@ A multi-scale visualization of firefly light production:
 - **Population-Level Output (meter scale):** A jar of ~40 fireflies generates light equivalent to a candle.
 
 ### Chapter 27: Planetary Sky Colors
-![Atmospheric Scattering and Stellar Classification](27_PlanetarySkyColors/27_%20A%20Spectrum%20of%20Skies.pdf)
+![Atmospheric Scattering and Stellar Classification](README_SOURCE/ch27_sky_colors.png)
 
 **Atmospheric Filtering of Stellar Radiation:** Sunlight reaching Earth undergoes selective scattering by the atmosphere. Shorter wavelengths (blue, violet) are scattered in all directions, while longer wavelengths (red, orange) pass through more directly. This results in both the blue sky and the reddening of the sun near the horizon.
 
