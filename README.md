@@ -55,6 +55,24 @@ python3 generate_toc.py
 # outputs TABLE_OF_CONTENTS.txt
 ```
 
+### Publish PDF as GitHub Release
+To share the compiled PDF without committing it to the repository, you can publish it as a GitHub release:
+
+```bash
+./release_pdf.sh
+```
+
+This creates (or updates) a `latest` release with the current `main.pdf`. The PDF remains accessible at a stable URL:
+```
+https://github.com/silverdavi/unpopular-science-source/releases/download/latest/main.pdf
+```
+
+**Prerequisites (one-time setup):**
+```bash
+brew install gh        # Install GitHub CLI
+gh auth login          # Authenticate
+```
+
 ## Sample Visuals
 
 Each chapter includes a custom visual sidenote page. Here are examples from 5 chapters:
