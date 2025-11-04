@@ -5,10 +5,9 @@
 \newcommand{\OpB}[1]{\textcolor{red!60!black}{#1}} % Operations/Identities in B (dark red)
 
 \begin{technical}
-{\Large\textbf{Exponentials}}\\[0.25em]
+{\Large\textbf{How \( f' = f \) ⇒ \( f(x+y) = f(x)f(y) \)}}\\[0.25em]
 
-\noindent\textbf{1. How \( f' = \lambda f \underset{\sim}{\Rightarrow} f(x+y) = f(x)f(y) \)?}\\
-Let \( (\A{A}, \OpA{+}, \OpA{0}) \) be an additive group and \( (\B{B}, \OpB{+}, \OpB{\cdot}, \OpB{0}, \OpB{1}) \) a unital commutative ring. Let \( \mathrm{Func}(\A{A}, \B{B}) \) be the ring of functions with pointwise operations.
+Let \( (\A{A}, \OpA{+}, \OpA{0}) \) be an additive (semi-)group and \( (\B{B}, \OpB{+}, \OpB{\cdot}, \OpB{0}, \OpB{1}) \) a unital commutative ring. Let \( \mathrm{Func}(\A{A}, \B{B}) \) be the ring of functions with pointwise operations.
 
 Define shift operator \( T_{\A{y}}: \mathrm{Func}(\A{A}, \B{B}) \to \mathrm{Func}(\A{A}, \B{B}) \) by \( (T_{\A{y}}g)(\A{x}) := g(\A{x} \OpA{+} \A{y}) \).
 
@@ -28,32 +27,37 @@ Let \( f \in \mathrm{Func}(\A{A}, \B{B}) \) and \( \B{\lambda} \in \B{B} \) sati
 \begin{itemize}[leftmargin=2.5em,topsep=0pt,itemsep=0pt]
   \item[(E)] Eigenfunction: \( K(f) = \B{\lambda} \OpB{\cdot} f \)
   \item[(N)] Normalization: \( f(\OpA{0}) = \OpB{1} \)
-  \item[(U)] Uniqueness: Evaluation at \( \OpA{0} \) is injective on \( \ker(K - \B{\lambda} I) \).
+  \item[(U)] Uniqueness: Evaluation at \( \OpA{0} \) is injective on \( \ker(K - \B{\lambda} I) \) 
 \end{itemize}
 For \( f \) satisfying (E), let \( g_{\A{y}} := T_{\A{y}}f \). Then:
 \begin{align*}
 K(g_{\A{y}}) &= K(T_{\A{y}}f) \\
 &= T_{\A{y}}(K(f)) = T_{\A{y}}(\B{\lambda} \OpB{\cdot} f) \\
-&= \B{\lambda} \OpB{\cdot} T_{\A{y}}(f) = \B{\lambda} \OpB{\cdot} g_{\A{y}}\\
-\text{Define } g(\A{x}) &= f(\A{x} \OpA{+} \A{y}) \OpB{-} f(\A{x}) \OpB{\cdot} f(\A{y}) \\
-&= g_{\A{y}}(\A{x}) \OpB{-} f(\A{x}) \OpB{\cdot} f(\A{y}),\\
+&= \B{\lambda} \OpB{\cdot} T_{\A{y}}(f) = \B{\lambda} \OpB{\cdot} g_{\A{y}}
+\end{align*}
+Define the function \( g := g_{\A{y}} \OpB{-} f \OpB{\cdot} c_{f(\A{y})} \) where \( c_{f(\A{y})} \) is the constant function with value \( f(\A{y}) \) (i.e., pointwise \( g(\A{x}) = f(\A{x} \OpA{+} \A{y}) \OpB{-} f(\A{x}) \OpB{\cdot} f(\A{y}) \)).
+
+Evaluating at \( \OpA{0} \):
+\begin{align*}
 g(\OpA{0}) &= f(\A{y}) \OpB{-} f(\OpA{0}) \OpB{\cdot} f(\A{y}) = \OpB{0}.
 \end{align*}
-Computing \( K(g) \) using (A), (L), and (C) (with \( c_{f(\A{y})} \) the constant function):
+Computing \( K(g) \):
 \begin{align*}
-K(g) &= K(g_{\A{y}}) \OpB{-} K(f \OpB{\cdot} c_{f(\A{y})}) \\
-&= K(g_{\A{y}}) \OpB{-} (K(f) \OpB{\cdot} c_{f(\A{y})} \OpB{+} f \OpB{\cdot} K(c_{f(\A{y})})) \\
-&= \B{\lambda} \OpB{\cdot} g_{\A{y}} \OpB{-} (\B{\lambda} \OpB{\cdot} f \OpB{\cdot} c_{f(\A{y})} \OpB{+} f \OpB{\cdot} c_{\OpB{0}}) \\
+K(g) &= K(g_{\A{y}} \OpB{-} f \OpB{\cdot} c_{f(\A{y})}) \\
+&= K(g_{\A{y}}) \OpB{-} K(f \OpB{\cdot} c_{f(\A{y})}) \tag{by (A)}\\
+&= K(g_{\A{y}}) \OpB{-} (K(f) \OpB{\cdot} c_{f(\A{y})} \OpB{+} f \OpB{\cdot} K(c_{f(\A{y})})) \tag{by (L)}\\
+&= \B{\lambda} \OpB{\cdot} g_{\A{y}} \OpB{-} (\B{\lambda} \OpB{\cdot} f \OpB{\cdot} c_{f(\A{y})} \OpB{+} f \OpB{\cdot} c_{\OpB{0}}) \tag{by (E), (C)}\\
 &= \B{\lambda} \OpB{\cdot} g_{\A{y}} \OpB{-} \B{\lambda} \OpB{\cdot} f \OpB{\cdot} c_{f(\A{y})} \\
-&= \B{\lambda} \OpB{\cdot} (g_{\A{y}}(\A{x}) \OpB{-} f(\A{x}) \OpB{\cdot} f(\A{y})) = \B{\lambda} \OpB{\cdot} g(\A{x})
+&= \B{\lambda} \OpB{\cdot} (g_{\A{y}} \OpB{-} f \OpB{\cdot} c_{f(\A{y})}) \\
+&= \B{\lambda} \OpB{\cdot} g
 \end{align*}
-Since \( K(g) = \B{\lambda} \OpB{\cdot} g \) and \( g(\OpA{0}) = \OpB{0} \), uniqueness (U) gives \( g \equiv \OpB{0} \). Thus:
+Since \( K(g) = \B{\lambda} \OpB{\cdot} g \) and \( g(\OpA{0}) = \OpB{0} \), uniqueness (U) gives \( g = c_{\OpB{0}} \) (the zero function). Thus:
 \vspace{-0.25em}
 \begin{align*}
 f(\A{x} \OpA{+} \A{y}) = f(\A{x}) \OpB{\cdot} f(\A{y})
 \end{align*} 
 Hence the additive exponential property emerges from the derivation properties:
-\textbf{(A)} additivity, \textbf{(L)} Leibniz, \textbf{(T)} translational symmetry,
+\textbf{(A)} additivity, \textbf{(L)} Leibniz, \textbf{(C)} annihilation of constants, \textbf{(T)} translational symmetry,
 and \textbf{(U)} uniqueness at $\OpA{0}$.
 The functional equation \( f(x+y) = f(x)f(y) \) is a geometric necessity,
 of which the real exponential \( e^{x+y} = e^x e^y \) is a special case.
@@ -72,27 +76,14 @@ This error term satisfies a cocycle condition central to group cohomology,
 measuring how far \( f \) is from being a homomorphism.
 
 \textit{Intuition}:
-Translation invariance makes $K$ commute with shifts: $K(T_{\A{y}} f) = T_{\A{y}} K(f)$. Thus every translate $T_{\A{y}} f$ of an eigenfunction remains in the $\lambda$-eigenspace of $K$. Translation acts on this eigenspace by scalar multiplication: $T_{\A{y}}f = f(\A{y})\,f$. Commuting with the derivation therefore forces addition in the domain (the group operation generating translations) to correspond to multiplication in the codomain (the scalar action on the eigenspace). Eigenfunctions of a translation-invariant derivation therefore turn addition into multiplication.
+Translation invariance makes $K$ commute with shifts: $K(T_{\A{y}} f) = T_{\A{y}} K(f)$. Thus every translate $T_{\A{y}} f$ of an eigenfunction remains in the $\lambda$-eigenspace of $K$. By (U), translation acts on this eigenspace by scalar multiplication: $T_{\A{y}}f = c_{f(\A{y})} \OpB{\cdot} f$, meaning that translating $f$ by $\A{y}$ yields the function $\A{x} \mapsto f(\A{y}) \OpB{\cdot} f(\A{x})$. Commuting with the derivation therefore forces addition in the domain (the group operation generating translations) to correspond to multiplication in the codomain (the scalar action on the eigenspace). Eigenfunctions of a translation-invariant derivation therefore turn addition into multiplication.
 
-\vspace{0.2em}
-\noindent\textbf{2. Geometric Interpretation in Manifolds}\\
-Riemannian exponential: for a Riemannian manifold \( M \) and \( p \in M \),
-\( \exp_p(v) := \gamma_v(1) \), where \( \gamma_v \) solves:
-\vspace{-0.25em}
-\begin{align*}
-\frac{D}{dt} \dot{\gamma}_v(t) &= 0,\\
-\gamma_v(0) = p&,\ \dot{\gamma}_v(0) = v
-\end{align*}
+\vspace{0.3em}
+\noindent\textbf{Example: Classical Derivative}\\
+Let \( \A{A} = (\mathbb{R}, +, 0) \), \( \B{B} = (\mathbb{R}, +, \cdot, 0, 1) \), and \( K = \frac{d}{dx} \) on smooth real functions. Define \( f(x) := e^{\lambda x} \) for \( \lambda \in \mathbb{R} \).
 
-In \( \mathbb{R}^n \): \( \gamma_v(t) = p + tv \), so \( \exp_p(v) = p + v \).\\
-Lie group exponential (matrix case): if \( G \subset \mathrm{GL}_n(\mathbb{R}) \) with Lie algebra \( \mathfrak{g} \), the map \( \exp: \mathfrak{g} \to G \) yields one-parameter subgroups
-\( \gamma_X(t) = \exp(tX) \) with \( \gamma_X(0) = I \) and \( \gamma_X'(t) = X\,\gamma_X(t) \) (left-invariant convention).
-In general, this is not the Riemannian exponential unless the metric is chosen suitably (e.g., bi-invariant metrics).
+Then \( K \) satisfies (A) \( (f+g)' = f' + g' \), (L) \( (fg)' = f'g + fg' \), (C) \( (\text{constant})' = 0 \), and (T) \( (T_y f)'(x) = f'(x+y) = (T_y f')(x) \). Condition (U) holds since any solution to \( g' = \lambda g \) with \( g(0) = 0 \) is \( g \equiv 0 \) by uniqueness of ODE solutions.
 
-\vspace{0.25em}
-\noindent\textbf{References:}\\
-{\footnotesize
-Lang (2001). \textit{Fund.\ Diff.\ Geom.} Springer.\\
-Hall (2015). \textit{Lie Groups, Lie Algebras, and Representations}. Springer.
-}
+Since \( f' = \lambda e^{\lambda x} = \lambda f \) and \( f(0) = 1 \), all hypotheses (A)–(U) hold, hence \( e^{\lambda(x+y)} = e^{\lambda x} e^{\lambda y} \).
+
 \end{technical}
