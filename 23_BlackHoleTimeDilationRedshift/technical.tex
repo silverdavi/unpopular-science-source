@@ -2,31 +2,28 @@
 {\Large\textbf{Coordinate Reversal and Causal Geometry}}\\[0.1em]
 
 \noindent\textbf{Schwarzschild Metric and the Horizon}\\[0.5em]
-The Schwarzschild metric describes spacetime outside a static mass \(M\). In spherical coordinates \((t, r, \theta, \phi)\), it takes the form:
+The Schwarzschild metric describes spacetime outside a static mass \(M\). In spherical coordinates \((t, r, \theta, \phi)\), it takes the form (with \( r_s = 2GM/c^2 \)):
 \begin{align*}
 \mathrm{d}s^2 =\ 
-& -\left(1 - \frac{2GM}{rc^2}\right)c^2\,\mathrm{d}t^2 \nonumber \\
-& + \left(1 - \frac{2GM}{rc^2}\right)^{-1}\mathrm{d}r^2 \nonumber \\
+& -\left(1 - \frac{r_s}{r}\right)c^2\,\mathrm{d}t^2 \nonumber \\
+& + \left(1 - \frac{r_s}{r}\right)^{-1}\mathrm{d}r^2 \nonumber \\
 & + r^2\,\mathrm{d}\theta^2 + r^2\sin^2\theta\,\mathrm{d}\phi^2.
 \end{align*}
 
-The Schwarzschild radius is defined as:
-\[
-r_s = \frac{2GM}{c^2}.
-\]
+
 At \(r = r_s\), \(g_{tt} = 0\), \(g_{rr} \to \infty\). This signals a breakdown in coordinates, not in geometry.
 
 \vspace{0.3em}
 \noindent\textbf{Time Dilation and Gravitational Redshift}\\[0.5em]
 A static observer at fixed radius \(r > r_s\) experiences proper time:
 \begin{equation}
-\mathrm{d}\tau = \sqrt{1 - \frac{2GM}{rc^2}}\,\mathrm{d}t.
+\mathrm{d}\tau = \sqrt{1 - \frac{r_s}{r}}\,\mathrm{d}t.
 \end{equation}
 As \(r \to r_s\), \(\mathrm{d}\tau/\mathrm{d}t \to 0\). Distant clocks appear to tick normally, but local clocks slow near the horizon.
 
 Photons emitted at \(r_{\text{em}}\) and received at \(r_{\text{obs}} \to \infty\) undergo redshift:
 \begin{equation}
-1 + z = \left(1 - \frac{2GM}{r_{\text{em}}c^2}\right)^{-1/2}.
+1 + z = \left(1 - \frac{r_s}{r_{\text{em}}}\right)^{-1/2}.
 \end{equation}
 As \(r_{\text{em}} \to r_s\), \(z \to \infty\). Light from near the horizon becomes infinitely stretched and fades from view.
 
