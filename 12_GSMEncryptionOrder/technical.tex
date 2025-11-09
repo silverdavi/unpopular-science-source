@@ -23,13 +23,13 @@ y_{i,0}=x_i,
 \qquad
 y_{i,1}=x_i \oplus x_{i-1}.
 \]
-This yields 128 output bits \(Y=[Y_0,\dots,Y_{127}]\) where \(Y_k = y_{\lfloor k/2 \rfloor, k \bmod 2}\).  Every pair satisfies
+Assume zero-state initialization so the bit before each known block is defined. This yields 128 output bits \(Y=[Y_0,\dots,Y_{127}]\) where \(Y_k = y_{\lfloor k/2 \rfloor, k \bmod 2}\).  Every pair satisfies
 \[
 y_{i,1}\;\oplus\;y_{i-1,0}=y_{i,0}
-\quad\forall i,
+\quad\forall i\ge 1,
 \tag{2}
 \]
-a parity relation that later survives encryption.
+a parity relation that survives encryption as a linear constraint tying three keystream bits together.
 
 \noindent\textbf{Interleaver}\\[0.5em]
 A fixed block interleaver permutes the 128 bits:
@@ -48,16 +48,13 @@ C_i = Y_{\pi(i)} \oplus K_i.
 Because XOR preserves length and position, all structure in \(Y\) remains in masked form in \(C\).
 
 \noindent\textbf{Ciphertext‑Only Attack Sketch}\\[0.5em]
-\textit{Training leakage}: From 32 known training/pad/parity input bits, the rate~1/2 encoder produces 64 known coded bits, so the attacker obtains
+\textit{Training leakage}: From 32 known training/pad/parity input bits, the rate~1/2 encoder produces 64 known coded bits (32 from \(y_{\cdot,0}\) and 32 from \(y_{\cdot,1}\) with state assumption), so the attacker obtains
 \(K_i = C_i \oplus Y_{\pi(i)}\) for 64 positions.
 
-\textit{Parity recursion}: Using Equation (2) these known~\(K_i\) values let the
-attacker deduce additional \(Y_j\) and thus more \(K_j\), cascading until
-the full keystream is known.
+\textit{Parity recursion}: Using Equation (2), each parity relation after interleaving becomes a linear equation in three ciphertext bits and three keystream bits. The known~\(K_i\) values seed a sparse linear system over \(\mathbb{F}_2\) that propagates to many additional \(K_j\). With \textbf{multiple frames}, the system typically determines the full keystream through solving a large linear system or using precomputed tables.
 
-\textit{Information bit recovery}: With all \(K_i\) recovered, the attacker inverts
-the interleaver and convolutional code to extract \(s_1,\dots,s_{32}\).
-Real attack requires \textbf{multiple ciphertext frames} plus hours of preprocessing with gigabytes of precomputed tables.
+\textit{Information bit recovery}: With keystream recovered, the attacker inverts
+the interleaver and convolutional code to extract \(s_1,\dots,s_{32}\) from each frame.
 
 \noindent\textbf{Why Encrypt‑First Stops the Leak}\\[0.5em]
 If encryption preceded coding, the encoder would process \(X \oplus K'\) rather than \(X\).

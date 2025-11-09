@@ -2,7 +2,7 @@
 {\Large\textbf{The $\mathbb{Z}_2$ Topological Invariant}}\\[0.3em]
 
 \textbf{Time-Reversal Symmetry and Kramers Pairs}\\[0.5em]
-Time-reversal symmetry acts on electronic states as $\mathcal{T}|\psi\rangle = \Theta K|\psi\rangle$, where $\Theta$ is a unitary matrix and $K$ is complex conjugation. For spin-1/2 electrons, $\mathcal{T}^2 = -1$, leading to Kramers theorem: every state at momentum $\mathbf{k}$ has a degenerate partner at $-\mathbf{k}$. At time-reversal invariant momenta (TRIM) where $\mathbf{k} = -\mathbf{k}$ (modulo reciprocal lattice), all states come in degenerate pairs.
+Time-reversal symmetry acts on electronic states as $\mathcal{T}|\psi\rangle = \Theta K|\psi\rangle$, where $\Theta$ is a unitary matrix and $K$ is complex conjugation. For spin-1/2 electrons, $\mathcal{T}^2 = -1$, leading to Kramers theorem: time-reversal maps states at $\mathbf{k}$ to partners at $-\mathbf{k}$. At generic $\mathbf{k}$, these are states at different momenta. At time-reversal invariant momenta (TRIM) where $\mathbf{k} = -\mathbf{k}$ (modulo reciprocal lattice), all states come in degenerate pairs at the same momentum.
 
 \textbf{The $\mathbb{Z}_2$ Classification}\\[0.5em]
 In 2D with time-reversal symmetry, the topological character is captured by a binary invariant $\nu \in \{0,1\}$. Unlike the Chern number (which requires broken time-reversal), this $\mathbb{Z}_2$ index survives when $\mathcal{T}$ is preserved.
@@ -11,7 +11,7 @@ Consider occupied Bloch states $|u_{n\mathbf{k}}\rangle$ forming a bundle over t
 \[
 w_{mn}(\Gamma_i) = \langle u_m(-\Gamma_i)|\mathcal{T}|u_n(\Gamma_i)\rangle
 \]
-Its Pfaffian $\text{Pf}[w(\Gamma_i)]$ is gauge-dependent but its sign is not. Define:
+The Pfaffian $\text{Pf}[w(\Gamma_i)]$ depends on the occupied-band gauge choice. The gauge-invariant object is:
 \[
 \delta_i = \frac{\text{Pf}[w(\Gamma_i)]}{\sqrt{\det[w(\Gamma_i)]}} = \pm 1
 \]

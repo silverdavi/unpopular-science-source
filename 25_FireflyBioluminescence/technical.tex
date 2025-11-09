@@ -2,23 +2,37 @@
 {\Large\textbf{Bioluminescence Mechanics and Quantification}}\\[0.2em]
 
 \noindent\textbf{Molecular Reaction}\\
-Firefly luciferase catalyzes ATP-driven luciferin oxidation, producing excited oxyluciferin that emits a photon at $\sim 560\,\text{nm}$ ($E \approx 3.55 \times 10^{-19}\,\text{J}$) with quantum yield $\sim 0.4$. Flash duration (200–300 ms) is controlled by oxygen availability via tracheal gating to photocytes.
+Firefly luciferase catalyzes ATP-driven luciferin oxidation, producing excited oxyluciferin that emits a photon at $\sim 560\,\text{nm}$ ($E \approx 3.55 \times 10^{-19}\,\text{J}$) with quantum yield $\Phi \approx 0.41$ (range 0.35–0.55). Flash duration (200–300 ms) is controlled by oxygen availability via tracheal gating to photocytes. Timmins et al. (2001) demonstrated that flash termination occurs via oxygen depletion when tracheoles constrict, cutting O$_2$ supply to photocytes.
 
 \noindent\textbf{Bottom-Up Biochemical Calculation}\\
-Photon emission from enzyme abundance and oxygen-limited kinetics ($10^6$ molecules/photocyte $\times$ $10^5$ photocytes $= 10^{11}$ total luciferase):
-\begin{align*}
-\text{Reaction rate} &= 10^{11}\,\text{enzymes} \times 0.01\,\text{s}^{-1} = 10^9\,\text{rxn/s} \\
-\text{Photon flux} &= 10^9 \times 0.4 = 4 \times 10^8\,\text{photons/s} \\
-\text{Photons/flash} &= 4 \times 10^8 \times 0.25\,\text{s} \approx 10^8\,\text{photons}
-\end{align*}
-Flash intensity is limited by oxygen delivery, not enzyme saturation. In vivo turnover (0.01–0.1 s$^{-1}$) is orders of magnitude below in vitro $k_\text{cat}$ maximum (1–2 s$^{-1}$). This prediction is independently corroborated by modern spectrometry (Goh \& Wang, 2022: $3$–$5 \times 10^8$ photons/flash) and expert estimates (T.R. Fallon, pers. comm.: $10^8$–$10^9$).
+Total photon emission follows from enzyme abundance and oxygen-limited kinetics:
+$$N_\gamma = N_\text{luc,cell} \times N_\text{cells} \times k_{\text{eff}} \times \Phi \times t$$
 
-\noindent\textbf{Historical Discrepancy}\\
-The biochemical prediction ($\sim 10^8$ photons/flash $\approx 7.6 \times 10^{-9}$ candle) contradicts the canonical measurement from Ives \& Coblentz (1924) — propagated through textbooks for a century — of 1/40 candle (0.025\,cd, implying $\sim 3 \times 10^{14}$ photons/flash). This six-order-of-magnitude discrepancy likely reflects methodological limitations of early photometry and uncritical propagation. The biologically plausible range, constrained by enzyme abundance, oxygen delivery, and ATP budgets, is $\sim 10^8$–$10^{10}$ photons/flash. Firefly light appears brighter to human vision than to cameras due to near-perfect overlap with peak photopic sensitivity (555\,nm).
+\noindent\textit{Parameter ranges from physical bounds and biochemical constraints:}
+\begin{itemize}[leftmargin=2em,itemsep=0pt,topsep=3pt]
+\item Luciferase per photocyte: $10^6$ molecules (range: $3 \times 10^5$ to $10^7$)
+\item Photocytes per lantern: $10^5$ cells (range: $5 \times 10^4$ to $3 \times 10^5$)
+\item Quantum yield $\Phi$: $0.41$ (range: $0.35$ to $0.55$)
+\item Effective turnover $k_{\text{eff}}$: $0.01\,\text{s}^{-1}$ (range: $0.005$ to $0.1\,\text{s}^{-1}$)
+\item Flash duration $t$: $0.25\,\text{s}$ (range: $0.20$ to $0.30\,\text{s}$)
+\end{itemize}
+
+\noindent\textit{Central calculation:}
+\begin{align*}
+N_\gamma &= 10^6 \times 10^5 \times 0.01 \times 0.41 \times 0.25 \\
+&= 10^8\,\text{photons per flash}
+\end{align*}
+
+\noindent\textit{Plausible range:} $5 \times 10^7$ (pessimistic) to $5 \times 10^{10}$ (optimistic) photons/flash. The key constraint is oxygen limitation: in vivo effective turnover ($0.01$–$0.1\,\text{s}^{-1}$) is orders of magnitude below in vitro $k_\text{cat}$ maximum ($1$–$2\,\text{s}^{-1}$). 
+
+\noindent\textbf{Historical Discrepancy: Six Orders of Magnitude}\\
+The canonical measurement from Ives \& Coblentz (1924) reports $1/40$ candle ($0.025\,\text{cd}$), corresponding to $3.26 \times 10^{14}$ photons/flash via modern photometric conversion (assuming isotropic emission, $V(560\,\text{nm}) \approx 0.995$, luminous efficacy $683\,\text{lm/W}$). This value exceeds the biochemically plausible range by $\sim 3.2 \times 10^6$ (approximately 6.5 orders of magnitude). Even the most optimistic scenario (maximum enzyme abundance, upper-bound quantum yield, $k_{\text{eff}} = 0.1\,\text{s}^{-1}$) yields $\leq 5 \times 10^{10}$ photons — still over 6,500$\times$ below the historical value. The 1924 measurement, propagated uncritically through Harvey (1952, 1957), Shimomura (2006, 2012), and countless textbooks, likely reflects early photometric calibration uncertainties, subjective visual nulling against carbon lamps, and angular distribution assumptions. Firefly light appears brighter to human vision than to cameras due to near-perfect spectral match with peak photopic sensitivity ($555\,\text{nm}$).
+
 \noindent\textbf{References:}\\
 {\footnotesize
-Wilson, T. \& Hastings, J.W. (1998). Bioluminescence. \textit{Annu. Rev. Cell Dev. Biol.}, \textbf{14}, 197-230.\\
-Shimomura, O. (2012). \textit{Bioluminescence: Chemical Principles and Methods}. World Scientific.\\
-Ives, H. E., \& Coblentz, W. W. (1924). Photometric studies of luminous insects. \textit{J. Opt. Soc. Am.}, 9(3), 217–236.
+Timmins, G.S., et al. (2001). Firefly flashing is controlled by gating oxygen to light-emitting cells. \textit{J. Exp. Biol.}, 204, 2795–2801.\\
+Ives, H.E., \& Coblentz, W.W. (1924). Photometric studies of luminous insects. \textit{J. Opt. Soc. Am.}, 9(3), 217–236.\\
+Wilson, T., \& Hastings, J.W. (1998). Bioluminescence. \textit{Annu. Rev. Cell Dev. Biol.}, 14, 197–230.\\
+Shimomura, O. (2012). \textit{Bioluminescence: Chemical Principles and Methods}. World Scientific.
 }
 \end{technical}

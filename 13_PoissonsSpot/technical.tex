@@ -1,51 +1,58 @@
 \begin{technical}
-{\Large\textbf{Mathematical Analysis of the Arago Spot}}\\[0.3em]
+{\Large\textbf{The Arago Spot}}\\[0.25em]
 
-We derive the Arago spot from the wave theory of light using scalar diffraction theory. This analysis formalizes the intuitive explanation through the Huygens–Fresnel principle and the Helmholtz equation, culminating in a quantitative prediction for the on-axis intensity behind an opaque disk.
+We use scalar diffraction theory — based on the Helmholtz equation and the Rayleigh–Sommerfeld integral — together with Babinet's principle to compute the on-axis field behind a circular disk.
 
-\noindent\textbf{Scalar Wave Equation and Helmholtz Formulation}\\[0.5em]
-Light propagation in free space is governed by the scalar wave equation:
+\noindent\textbf{Scalar framework}\\[0.4em]
+For a monochromatic field $\Psi(\mathbf{r})$ with wavenumber $k=2\pi/\lambda$,
 \[
-\nabla^2 \psi - \frac{1}{c^2} \frac{\partial^2 \psi}{\partial t^2} = 0.
+\nabla^2 \Psi + k^2 \Psi = 0.
 \]
-Assuming monochromatic fields, we write $\psi(\mathbf{r},t) = \Re\{\Psi(\mathbf{r})\,e^{-i\omega t}\}$, which leads to the Helmholtz equation:
-\[
-\nabla^2 \Psi + k^2 \Psi = 0, \quad k = \frac{2\pi}{\lambda}.
-\]
-In diffraction problems, $\Psi(\mathbf{r})$ represents the complex field amplitude. The solution behind an obstacle is obtained by integrating contributions of secondary wavelets from all unobstructed regions, according to the Huygens–Fresnel principle.
+We use the Rayleigh–Sommerfeld formulation, which satisfies boundary conditions at the aperture plane. In what follows $\Psi$ denotes the complex amplitude and $U$ the on-axis field.
 
-\noindent\textbf{On-Axis Diffraction Integral and Constructive Interference}\\[0.5em]
-Consider a plane wave incident on a circular opaque disk of radius $a$. The screen is located distance $b$ behind the disk. At the center point $P_1$ on the optical axis, all wavelets diffracted around the disk edge follow paths of length
+\noindent\textbf{Babinet and the axial field}\\[0.4em]
+Let $U_{\rm inc} = A_0 e^{ikb}$ be a normally incident plane wave, and let $U_{\rm ap}(0)$ (aperture) and $U_{\rm disk}(0)$ (complementary disk) be the \emph{on-axis} fields a distance $b$ downstream. Babinet's principle gives
 \[
-\sqrt{a^2 + b^2},
+U_{\rm disk}(0) = U_{\rm inc}(0) - U_{\rm ap}(0).
 \]
-so the path difference relative to the direct path is
+For a \emph{circular aperture} of radius $a$, the axial Rayleigh–Sommerfeld integral in the Fresnel approximation evaluates to
 \[
-\Delta = \sqrt{a^2 + b^2} - b \approx \frac{a^2}{2b} \ll \lambda.
+U_{\rm ap}(0) = A_0 e^{ikb} \bigl(1 - e^{i\pi N}\bigr),
 \]
-This small $\Delta$ implies all contributing wavelets arrive in phase at $P_1$, yielding constructive interference.
+where the Fresnel number $N = a^{2}/(\lambda b)$. By Babinet's principle, the complementary \emph{disk} gives
+\[
+U_{\rm disk}(0) = A_0 e^{ikb} e^{i\pi N}.
+\]
+The magnitude is $|U_{\rm disk}(0)| = |A_0|$ for \emph{all} $N$, so the on-axis intensity equals the incident intensity — the Arago spot. What varies with $N$ is the phase $\arg U_{\rm disk}(0) = kb + \pi N$ and the surrounding rings. In real experiments, finite source size, partial coherence, edge imperfections, and detector averaging slightly lower the on-axis intensity.
 
-To evaluate the on-axis field, we apply the Kirchhoff–Fresnel integral in cylindrical coordinates, integrating over the region $r \ge a$ (outside the shadow):
+\noindent\textbf{What controls the pattern}\\[0.4em]
+The Fresnel number $N = a^{2}/(\lambda b)$ determines whether the diffraction lies in the Fresnel or Fraunhofer regime and characterizes how many Fresnel zones fit within the disk radius. When $N\gtrsim 1$ (near-field regime), the disk edge is within the first few Fresnel zones, producing pronounced concentric Fresnel rings with high contrast around the central spot. The axial field coherently combines contributions from the circular rim because the phase variation around the rim is quadratic and vanishes to first order on axis, making rim contributions nearly in phase. When $N\ll 1$ (Fraunhofer regime), the aperture field magnitude $|U_{\rm ap}(0)| \to 0$ and ring contrast becomes weak, though the central disk intensity remains at the incident level for all $N$.
+
+\noindent\textbf{Integral evaluation}\\[0.4em]
+On axis, the Rayleigh–Sommerfeld integral for a circular aperture reduces to
+\[
+U_{\rm ap}(0) = -\frac{iA_0 e^{ikb}}{\lambda b} \, 2\pi \int_0^a r\, e^{\,i\pi r^{2}/(\lambda b)}\, dr.
+\]
+Substituting $u = i\pi r^{2}/(\lambda b)$ gives $r\, dr = (\lambda b)/(2i\pi)\, du$, so
 \begin{align*}
-U(P_1) &= -\frac{i}{\lambda} \frac{A\,e^{ik(g+b)}}{gb} \cdot \\
-&\quad 2\pi \int_{a}^{\infty} \exp\left[ i\,\frac{k}{2} \left(\frac{1}{g} + \frac{1}{b}\right) r^2 \right] r\,dr, 
+U_{\rm ap}(0) &= -\frac{iA_0 e^{ikb}}{\lambda b} \cdot 2\pi \cdot \frac{\lambda b}{2i\pi} \int_0^{i\pi N} e^{u}\, du \\
+&= -i A_0 e^{ikb} \cdot \frac{1}{i} \bigl(e^{i\pi N} - 1\bigr) \\
+&= A_0 e^{ikb} \bigl(1 - e^{i\pi N}\bigr).
 \end{align*}
-where $A$ is the incident amplitude and $g$ is the distance to the source. In the limit $g \to \infty$ (plane wave), and assuming axial symmetry and uniform phase across the disk edge, this simplifies to:
+Rewriting:
+\begin{align*}
+U_{\rm ap}(0) &= -2i A_0 e^{ikb} e^{i\pi N/2} \sin(\pi N/2), \\
+|U_{\rm ap}(0)| &= 2|A_0| |\sin(\pi N/2)|.
+\end{align*}
+The aperture phase is
 \[
-U(P_1) = A_0 \cdot \frac{b}{\sqrt{b^2 + a^2}} \cdot \exp\left[ ik\sqrt{b^2 + a^2} \right],
+\arg U_{\rm ap}(0) = kb + \tfrac{\pi N}{2} - \tfrac{\pi}{2}
 \]
-where $A_0 = \lim (A e^{ikg} / g)$ is the incident amplitude in the far field.
-
-The resulting on-axis intensity is:
-\[
-I(0) = |U(P_1)|^2 = |A_0|^2 \cdot \frac{b^2}{b^2 + a^2}.
-\]
-In the limit $b \gg a$, this reduces to $I(0) \approx I_{\text{inc}}$, indicating that the central shadow point receives nearly the full beam intensity — a direct prediction of the Arago spot.
+with $\pi$-jumps where $\sin(\tfrac{\pi N}{2}) < 0$. The disk phase is $\arg U_{\rm disk}(0) = kb + \pi N$. Ultrasound experiments confirm this $N$-dependent phase.
 
 \vspace{0.5em}
 \noindent\textbf{References:}\\
 {\footnotesize
-Born, M. and Wolf, E. (1999). \textit{Principles of Optics}, 7th ed. Cambridge University Press.\\
-Feynman, R. P., Leighton, R. B., \& Sands, M. (1965). \textit{The Feynman Lectures on Physics}, Vol. III.
+Hitachi, A., \& Takata, M. (2009). Babinet's principle in the Fresnel regime studied using ultrasound. arXiv:0904.1269.
 }
 \end{technical}
