@@ -1,47 +1,34 @@
 \begin{technical}
 {\Large\textbf{Radon, Hough, and the Geometry of Detection}}\\[0.3em]
 
-\textbf{Introduction}\\[0.5em]
-Detecting geometric structures in images identifies parameter values $p$ for which shape $c(p)$ is present. Both the Radon and Hough transforms implement this principle — one via continuous integration, the other through discrete accumulation.
+\textbf{Continuous vs. Discrete Detection}\\[0.5em]
+Detecting a geometric structure in an image means finding parameters $p$ for which the curve or surface $C(x;p)=0$ is present in the intensity field $I(x)$. The Radon and Hough transforms implement this same idea in two complementary ways: one performs a continuous \emph{read-out} along shapes, the other a discrete \emph{write-in} from feature points.
 
 \textbf{Transform Duality: Reading vs Writing}\\[0.5em]
 Let $I(x)$ be a spatial image and $p \in P$ a parameter vector. The Radon transform is the integral projection:
 \[
 R(p) = \int_{\mathbb{R}^n} I(x)\, \delta(C(x; p))\, dx.
 \]
-A \emph{reading} operation: each $p$ queries all $x$ satisfying $C(x; p) = 0$ and accumulates their intensity. The Hough transform performs a \emph{writing} operation. For each $x_0$ where $I(x_0) \ne 0$, it computes all $p$ where $C(x_0; p) = 0$ and increments $H(p)$.
+Here each parameter $p$ queries all $x$ satisfying $C(x;p)=0$ and accumulates their intensity. In contrast, the Hough transform iterates over image locations: for each $x_0$ where $I(x_0)\neq 0$, it computes all $p$ with $C(x_0;p)=0$ and increments $H(p)$.
 
-Let $\mathcal{C}_p = \{x \in \mathbb{R}^n \mid C(x; p) = 0\}$ denote the pre-image of shape $p$, and $\mathcal{M}_x = \{p \in P \mid C(x; p) = 0\}$ the image of feature $x$. Then:
+Let $\mathcal{C}_p = \{x \in \mathbb{R}^n \mid C(x; p) = 0\}$ denote the locus of points on shape $p$, and $\mathcal{M}_x = \{p \in P \mid C(x; p) = 0\}$ the set of shapes passing through point $x$. Then:
 \begin{align*}
-R(p) &= \int_{\mathcal{C}_p} I(x)\, d\mu(x), \quad \text{(Radon)}\\
-H(p) &= \sum_{x \in \mathrm{supp}(I)} \mathbf{1}_{\mathcal{M}_x}(p). \quad \text{(Hough)}
+R(p) &= \int_{\mathcal{C}_p} I(x)\, d\mu(x), \quad &\text{(Radon: continuous read-out)}\\
+H(p) &= \sum_{x \in \mathrm{supp}(I)} \mathbf{1}_{\mathcal{M}_x}(p), \quad &\text{(Hough: discrete write-in).}
 \end{align*}
-The former computes the inner product between $I(x)$ and a template over $\mathcal{C}_p$, while the latter constructs a discrete indicator function supported on a union of manifolds.
+Radon computes an inner product between $I(x)$ and a template restricted to $\mathcal{C}_p$, while Hough builds up a histogram in parameter space whose peaks indicate well-supported shapes.
 
-\textbf{Generalized Template Algebra}\\[0.5em]
-Let $C(p,x)$ be a generalized function (Gel'fand), with $C(p,x) = \delta(C(x; p))$. The transform is a Fredholm integral operator:
+\textbf{Unified Operator View}\\[0.5em]
+Both transforms can be expressed as linear operators with a kernel $C(p,x)$:
 \[
 (\mathcal{L}_C I)(p) = \int_{\mathbb{R}^n} C(p,x)\, I(x)\, dx.
 \]
-This unifies both transforms with classical template matching. If $C(p,x)$ is shift-invariant, i.e., $C(p,x) = K(x - \phi(p))$, the operator reduces to convolution. This links Radon/Hough methods to Fourier-analytic descriptors.
+Choosing $C(p,x)=\delta(C(x; p))$ recovers Radon-type projections. Replacing the integral by a sum over discrete feature points and incrementing an accumulator at each $p$ with $C(x; p)=0$ yields Hough-type transforms.
 
-In $\mathbb{R}^2$, detecting lines in normal form $\rho = x\cos\theta + y\sin\theta$ yields
-\[
-C(\rho,\theta; x,y) = \delta(\rho - x\cos\theta - y\sin\theta).
-\]
-Substituting into $\mathcal{L}_C I$ recovers the Radon projection; replacing the integral with discrete summation recovers the Hough vote.
+If $C(p,x)$ is shift-invariant, i.e., $C(p,x) = K(x - \phi(p))$, the operator reduces to convolution with a shifted template. This links Radon/Hough methods to classical matched filtering and Fourier-analytic descriptors.
 
-\textbf{Intersection Topology in Parameter Space}\\[0.5em]
-Every edge point $x$ defines a manifold $\mathcal{M}_x \subset P$. True structures arise where multiple $\mathcal{M}_x$ intersect. The locus $\bigcap_{x \in S} \mathcal{M}_x$ defines candidate parameters supported by feature set $S$. A geometric analogue of data coherence. Nonzero measure intersections indicate shape presence. Noise and discretization perturb $\mathcal{M}_x$, but persistent intersections indicate robustness.
-
-In the continuous limit, $H(p) \to R(p)$ as $I(x) \to \delta$ on features and sampling density increases. The Hough transform is a discrete approximation to the Radon transform under sparse feature distributions.
-
-\textbf{Transform-Invariant Detection and Group Actions}\\[0.5em]
-Let $\mathcal{G}$ be a Lie group acting on image space via $\phi_g: \mathbb{R}^n \to \mathbb{R}^n$. A template $T$ transforms covariantly if
-\[
-C(p, \phi_g(x)) = C(g^{-1} \cdot p, x).
-\]
-Equivariant detection: shape presence is preserved under group action. Both transforms extend to such scenarios. Detecting rotated ellipses or scaled spirals requires reparameterizing the kernel over the associated group orbit.
+\textbf{Intersections in Parameter Space}\\[0.5em]
+Every edge point $x$ defines a manifold $\mathcal{M}_x \subset P$. True structures correspond to parameters $p^\star$ where multiple such manifolds intersect, producing sharp peaks in $H(p)$. In this view, detection is about the geometry of intersections: coherent data produce persistent intersections that survive noise and discretization, whereas random or spurious features yield only weak or isolated crossings.
 
 \vspace{0.5em}
 \textbf{References:}\\[0.5em]

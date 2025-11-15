@@ -18,7 +18,7 @@ The derived lower bound is tight for $n\le 4$ and remains the strongest known ge
 \noindent\textbf{Egan's Constructive Upper Bound}\\
 Greg Egan constructed a general method for building superpermutations of length at most
 \begin{align*}
-L(n) \leq n! &+ (n-1)! + (n-2)! \\
+L(n) \leq n! &+ (n-1)! + (n-2)! \\  
 &+ (n-3)! + n - 3.
 \end{align*}
 The method generates Hamiltonian paths through subsets of permutations with controlled overlaps: Begin with a path that efficiently traverses permutations of $n-1$ symbols. Lift the path into $S_n$ by inserting the new symbol in controlled positions. Design the insertion and merge process to preserve maximal overlaps where possible. Egan's construction uses Cayley graph traversal techniques and reuses structural symmetries. The difference between the upper and lower bounds is $(n-3)!$:
@@ -28,9 +28,10 @@ The method generates Hamiltonian paths through subsets of permutations with cont
 \noindent\textbf{Example: The Case $n = 7$}\\
 Applying the bounds:
 \begin{align*}
-\text{Lower bound: } & 5040 + 720 + 120 + 7 - 3\\
+\text{Lower bound: } &\; 7! + 6! + 5! + 7 - 3\\
  &= 5884, \\
-\text{Upper bound: } & 5040 + 720 + 120 + 24 + 7 - 3\\
+\text{Upper bound: } &\; \text{lower bound} + 4!\\
+ &= 5884 + 24\\
  &= 5908.
 \end{align*}
 The shortest known construction is 5906. The true value of $L(n)$ for $n = 7$ remains unknown.

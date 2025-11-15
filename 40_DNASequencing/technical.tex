@@ -31,30 +31,19 @@ Assembly seeks Eulerian path through $G$:
 &\quad + ... + \text{last}(e_m)
 \end{align*}
 
-For existence, the underlying graph over nonzero-degree vertices must be weakly connected and either:
-- All vertices balanced: in-degree = out-degree, or
-- Exactly two semi-balanced vertices (one with out-degree = in-degree + 1 and one with in-degree = out-degree + 1)
+For an Eulerian path to exist, the underlying graph over nonzero-degree vertices must be weakly connected, with all vertices balanced (in-degree = out-degree), or exactly two semi-balanced vertices: one with out-degree = in-degree + 1 and one with in-degree = out-degree + 1.
 
 \textbf{Coverage and k-mer Selection}\\[0.5em]
 Expected k-mer coverage:
 \[C_k = C_{\text{read}} \cdot \frac{L-k+1}{L}\]
 where $C_{\text{read}} = NL/G$ (reads $\times$ length / genome).
 
-Optimal $k$ balances:
-- Small $k$: More connections, higher coverage, ambiguity
-- Large $k$: Fewer repeats, lower coverage, gaps
+Optimal $k$ balances a tradeoff: smaller $k$ yields more connections and higher coverage but introduces ambiguity, while larger $k$ reduces repeat ambiguity at the cost of lower coverage and potential gaps.
 
-Typically $k \in [21, 127]$ for Illumina data.
+Typically $k \in [50, 250]$ for Illumina data.
 
 \textbf{Graph Complexity}\\[0.5em]
-Real graphs contain:
-\begin{itemize}[leftmargin=*, topsep=0pt, itemsep=0pt]
-\item \textbf{Bubbles}: SNPs/errors create parallel paths
-\item \textbf{Tips}: Coverage gaps form dead ends
-\item \textbf{Repeats}: Create branching/convergence
-\end{itemize}
-
-Error correction: Remove k-mers with coverage $<$ threshold.
+Real graphs contain three main types of structural features: \textbf{bubbles} (parallel paths created by SNPs or errors), \textbf{tips} (dead ends from coverage gaps), and \textbf{repeats} (creating branching and convergence). Error correction typically removes k-mers with coverage below a threshold.
 
 \textbf{Paired-End Constraints}\\[0.5em]
 Insert size $d \sim \mathcal{N}(\mu, \sigma^2)$ provides scaffolding:

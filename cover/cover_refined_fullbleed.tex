@@ -1,10 +1,11 @@
 % cd /Users/davidsilver/dev/private/unpopular-science-book.FRESH-clone/cover && lualatex --interaction=nonstopmode cover_refined.tex
 
 \documentclass[10pt]{article}
-% Mixam trim size version - PDF at trim size with artwork extending for bleed
-% Trim size: 15.66in x 10in
-% Artwork extends 0.8" beyond trim on all sides for bleed
-\usepackage[paperwidth=15.66in,paperheight=10in,margin=0in]{geometry}
+% Updated with 0.8" bleed for Mixam requirements
+% Base cover dimensions: 7in x 10in (each cover) + 1.29in spine = 15.29in x 10in
+% Total trim size: 15.66in x 10in
+% With 0.8" bleed on all sides: 17.26in x 11.6in
+\usepackage[paperwidth=17.26in,paperheight=11.6in,margin=0in]{geometry}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{xcolor}
