@@ -4,7 +4,7 @@ Once a set of axioms is fixed, all further reasoning, including definitions, pro
 
 Different axiomatic systems describe different mathematical worlds. In one system, every set may have a well-ordering (every nonempty subset has a least element with respect to the order). In another, it may not. In one geometry, parallel lines exist; in another, they do not.
 
-Even familiar objects depend on axiomatic choices. One way to see this is through the von Neumann construction of the natural numbers inside set theory. Think of sets as "bags" that can hold distinct objects: duplicates vanish, so $\{\text{dog},\text{dog},\text{cat}\}=\{\text{dog},\text{cat}\}$. The union of two bags (denoted by $A \cup B$) merges their contents, ignoring duplicates. With this picture, the naturals are nested bags, because all you have in this universe are empty bags. Mark an empty bag as $\{ \}$. 
+Even familiar objects depend on axiomatic choices. One way to see this is through the von Neumann construction of the natural numbers inside set theory. Think of sets as “bags” that can hold distinct objects: duplicates vanish, so $\{\text{dog},\text{dog},\text{cat}\}=\{\text{dog},\text{cat}\}$. The union of two bags (denoted by $A \cup B$) merges their contents, ignoring duplicates. With this picture, the naturals are nested bags, because all you have in this universe are empty bags. Mark an empty bag as $\{ \}$. 
 \[
 0:=\{\}, \quad 1:=\{0\}=\{\{\}\}, \quad 2:=\{0,1\}=\{\{\},\{\{\}\}\}, \quad 3:=\{0,1,2\}, \ \dots
 \]
@@ -19,7 +19,7 @@ The Axiom of Choice is one such axiom. It asserts that for any collection of non
 
 Let us now move down the ladder of abstraction: from axioms to the notion of size. Understanding how we measure things — length, area, volume — will be important for seeing why the Banach-Tarski paradox is so surprising.
 
-How do we assign "size" to things? In everyday life, it's intuitive: a room's area is its length times width, and if you combine two non-overlapping rooms, their total area is simply the sum of their individual areas. 
+How do we assign “size” to things? In everyday life, it's intuitive: a room's area is its length times width, and if you combine two non-overlapping rooms, their total area is simply the sum of their individual areas. 
 
 Measure theory formalizes this intuition. A \emph{measure} $\mu$ is a function that assigns a non-negative real number to certain subsets of a space. The central requirement is \textbf{additivity}: if two disjoint measurable sets $A$ and $B$ are combined, then their measure is the sum of the measures of the two sets: $\mu(A \cup B) = \mu(A) + \mu(B)$ (provided that $A \cap B = \emptyset$, i.e., they share no elements). This principle extends to infinite collections: if a set is decomposed into countably infinite disjoint measurable subsets $\{A_i\}_{i=1}^\infty$, then $\mu\left( \bigcup_{i=1}^\infty A_i \right) = \sum_{i=1}^\infty \mu(A_i)$. This is called \textbf{countable additivity}.
 
@@ -45,7 +45,7 @@ Two points lie in the same orbit if one can be turned into the other by some seq
 
 Because $A$ and $B$ are chosen carefully (rotations about different axes by irrational angles), the group they generate is free and each orbit is infinite, spreading densely across the sphere.
 
-At this point the Axiom of Choice enters: from each orbit, pick a single representative point. Call the set of these chosen representatives $R$. Every other point on the sphere can be written uniquely as $g \cdot r$, where $g$ is some sequence of rotations and $r \in R$ is the representative of its orbit. In other words, the entire sphere is recovered by "shuffling" the representatives through all possible rotation sequences. 
+At this point the Axiom of Choice enters: from each orbit, pick a single representative point. Call the set of these chosen representatives $R$. Every other point on the sphere can be written uniquely as $g \cdot r$, where $g$ is some sequence of rotations and $r \in R$ is the representative of its orbit. In other words, the entire sphere is recovered by “shuffling” the representatives through all possible rotation sequences. 
 
 Now comes the partitioning that makes the paradox work. Four players will divide the entire sphere among themselves by each taking the representatives $R$ and applying only certain rotation sequences:
 
@@ -74,7 +74,7 @@ This paradoxical outcome depends on selecting representative points from each or
 
 This construction illustrates the ideas underlying the Banach–Tarski paradox. The full theorem decomposes a three-dimensional ball into five pieces, which can then be rotated into two balls of the same size as the original. The core concepts — free groups acting on a sphere, orbit decompositions, the role of the Axiom of Choice in selecting representatives, and the resulting non-measurable sets — remain the same.
 
-The (Axiom of) Choice occupies a unique position in modern mathematics. Gödel proved that if ZF is consistent, then so is ZFC. Cohen later proved that if ZF is consistent, then so is ZF with the negation of Choice, establishing that the Axiom of Choice is independent of ZF. This independence — the existence of a statement neither provable nor disprovable from the axioms — was revolutionary. Classical theorems across mathematics rely upon it: "every vector space has a basis" and "the product of compact spaces is compact" are equivalent to accepting Choice. 
+The (Axiom of) Choice occupies a unique position in modern mathematics. Gödel proved that if ZF is consistent, then so is ZFC. Cohen later proved that if ZF is consistent, then so is ZF with the negation of Choice, establishing that the Axiom of Choice is independent of ZF. This independence — the existence of a statement neither provable nor disprovable from the axioms — was revolutionary. Classical theorems across mathematics rely upon it: “every vector space has a basis” and “the product of compact spaces is compact” are equivalent to accepting Choice. 
 
 Before dismissing Choice to avoid the paradox, know that its absence also permits some freighting results. When you partition a set into disjoint subsets, selecting one representative from each part typically creates an injection from the index set into the original set — the number of parts cannot exceed the number of elements. Without Choice, this fails. In ZF alone, it is consistent that a partition $X = \bigsqcup_{i \in I} B_i$ exists with no injection $I \hookrightarrow X$, so the cardinality $|I|$ need not be bounded by $|X|$. A set can be split into more parts than it has elements. Rejecting Choice trades one counterintuitive result for another. 
 
