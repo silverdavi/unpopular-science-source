@@ -51,8 +51,6 @@ Assembly statistics quantify output quality. The median contig length — the mi
 
 The \textbf{N50} statistic measures contiguity differently. Sort contigs from longest to shortest, then sum their lengths sequentially. The N50 is the length of the contig that brings this cumulative sum to 50\% of the total assembly size. It identifies the minimum length such that half the genome resides in contigs of that length or longer. For contigs of lengths 10, 9, 8, 7, 1, 1, 1, 1, and 1 kb (total 39 kb), the cumulative sum surpasses 50\% after adding the first three contigs ($10+9+8=27>39/2=19.5$ kb). The N50 is 8 kb — the length of that third contig. The median is 1 kb.
 
-The scientific literature frequently misreports N50 as “median contig length (N50).” The N50 is a length-weighted metric, not the simple median of contig lengths. Describing N50 as a “weighted median” is correct if one creates an expanded list where each contig appears once for each base it contains, then takes that list's median.
-
-This type of error is common when multidisciplinary knowledge is needed across distant fields such as biology and information science.
+The scientific literature sometimes misreports N50 as “median contig length (N50).” The N50 is a length-weighted metric, not the simple median of contig lengths. Describing N50 as a “weighted median” is correct if one creates an expanded list where each contig appears once for each base it contains, then takes that list's median.
 \end{commentary}
 
